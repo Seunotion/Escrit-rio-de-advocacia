@@ -1,0 +1,1101 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Escritório Tiana Ribeiro</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Spectral:wght@500;600&family=Public+Sans:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+<style>
+/* Layout: barra lateral fixa em azul-marinho (identidade do escritório) + área de trabalho em painéis; no celular a barra vira faixa rolável no topo */
+:root{
+  --bg:#EDF0F4; --panel:#FFFFFF; --panel2:#F5F7FA; --line:#D7DDE6; --ink:#0F1C2C; --muted:#5A697C;
+  --accent:#1F3864; --accent-ink:#FFFFFF; --accent-soft:rgba(31,56,100,.09);
+  --side:#042C53; --side-ink:#DCE5F0; --side-muted:#8FA6C2; --side-hi:rgba(255,255,255,.08);
+  --gold:#8E6B36; --gold-line:#B08D57; --gold-soft:rgba(176,141,87,.14);
+  --ok:#2C7656; --ok-soft:rgba(44,118,86,.12); --warn:#A86A12; --warn-soft:rgba(168,106,18,.13); --bad:#B23F2C; --bad-soft:rgba(178,63,44,.11);
+  --f1:#C5D3E3; --f2:#97B0CE; --f3:#D8C29C; --f4:#BDB5D6; --f5:#5E86B3; --f6:#1F3864; --f7:#B9C1CB; --f8:#B08D57;
+  --display:"Spectral", Georgia, "Times New Roman", serif;
+  --sans:"Public Sans", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --mono:"IBM Plex Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#09131F; --panel:#0F1D2E; --panel2:#142538; --line:#21364D; --ink:#E5EBF2; --muted:#8C9EB3;
+    --accent:#8DB0E2; --accent-ink:#09131F; --accent-soft:rgba(141,176,226,.12);
+    --side:#061424; --side-ink:#DCE5F0; --side-muted:#7F95B0; --side-hi:rgba(255,255,255,.07);
+    --gold:#D4B07A; --gold-line:#B08D57; --gold-soft:rgba(212,176,122,.14);
+    --ok:#62B58E; --ok-soft:rgba(98,181,142,.14); --warn:#E0A54A; --warn-soft:rgba(224,165,74,.14); --bad:#EC7A63; --bad-soft:rgba(236,122,99,.14);
+    --f1:#2B3E55; --f2:#3C5A7E; --f3:#6E5A38; --f4:#4A4568; --f5:#4F79A8; --f6:#8DB0E2; --f7:#3E4A58; --f8:#B08D57;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#09131F; --panel:#0F1D2E; --panel2:#142538; --line:#21364D; --ink:#E5EBF2; --muted:#8C9EB3;
+  --accent:#8DB0E2; --accent-ink:#09131F; --accent-soft:rgba(141,176,226,.12);
+  --side:#061424; --side-ink:#DCE5F0; --side-muted:#7F95B0; --side-hi:rgba(255,255,255,.07);
+  --gold:#D4B07A; --gold-line:#B08D57; --gold-soft:rgba(212,176,122,.14);
+  --ok:#62B58E; --ok-soft:rgba(98,181,142,.14); --warn:#E0A54A; --warn-soft:rgba(224,165,74,.14); --bad:#EC7A63; --bad-soft:rgba(236,122,99,.14);
+  --f1:#2B3E55; --f2:#3C5A7E; --f3:#6E5A38; --f4:#4A4568; --f5:#4F79A8; --f6:#8DB0E2; --f7:#3E4A58; --f8:#B08D57;
+  color-scheme:dark;
+}
+*,*::before,*::after{box-sizing:border-box}
+html,body{height:100%}
+body{background:var(--bg);color:var(--ink);font:14.5px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:2px solid var(--gold-line);outline-offset:2px}
+h1,h2,h3{font-family:var(--display);font-weight:600;text-wrap:balance;margin:0;letter-spacing:-.005em}
+.num,.mono{font-family:var(--mono);font-variant-numeric:tabular-nums}
+
+.app{display:grid;grid-template-columns:232px minmax(0,1fr);min-height:100%}
+/* Barra lateral */
+.side{background:var(--side);color:var(--side-ink);position:sticky;top:0;height:100vh;display:flex;flex-direction:column;padding:22px 14px 16px;overflow-y:auto}
+.brand{padding:0 8px 18px;border-bottom:1px solid rgba(176,141,87,.45);margin-bottom:14px}
+.brand b{display:block;font:600 19px/1.15 var(--display);color:#fff}
+.brand span{display:block;font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-line);margin-top:5px}
+.nav{display:flex;flex-direction:column;gap:2px}
+.nav button{all:unset;cursor:pointer;display:flex;align-items:center;gap:11px;padding:9px 10px;border-radius:7px;color:var(--side-ink);font-weight:500;font-size:14px}
+.nav button svg{width:18px;height:18px;flex:none;stroke:var(--side-muted);fill:none;stroke-width:1.7}
+.nav button:hover{background:var(--side-hi)}
+.nav button:focus-visible{outline:2px solid var(--gold-line);outline-offset:0}
+.nav button[aria-current="page"]{background:var(--side-hi);box-shadow:inset 3px 0 0 var(--gold-line);color:#fff}
+.nav button[aria-current="page"] svg{stroke:var(--gold-line)}
+.nav .badge{margin-left:auto;font:500 11.5px/1 var(--mono);background:rgba(176,141,87,.22);color:#F1DDB8;padding:3px 6px;border-radius:999px}
+.nav .badge.bad{background:rgba(236,122,99,.25);color:#FFD4CB}
+.side-foot{margin-top:auto;padding:14px 8px 0;border-top:1px solid var(--side-hi);font-size:12px;color:var(--side-muted);display:flex;flex-direction:column;gap:8px}
+.side-foot button{all:unset;cursor:pointer;color:var(--side-ink);font-weight:500}
+.side-foot button:hover{text-decoration:underline}
+.sync{display:flex;align-items:center;gap:7px}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--side-muted)}
+.dot.on{background:#62B58E}
+
+/* Área principal */
+main{min-width:0;padding-block:26px 70px;padding-inline:clamp(16px,3vw,36px)}
+.view-h{display:flex;justify-content:space-between;align-items:flex-end;gap:14px;flex-wrap:wrap;margin-bottom:18px}
+.view-h h1{font-size:clamp(24px,2.6vw,30px);line-height:1.15}
+.view-h p{margin:4px 0 0;color:var(--muted)}
+.view-h .acts{display:flex;gap:8px;flex-wrap:wrap}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;min-width:0}
+.ph{display:flex;justify-content:space-between;align-items:baseline;gap:10px;padding:14px 16px 10px}
+.ph h2{font-size:18px}
+.ph span,.ph button.link{font-size:13px;color:var(--muted)}
+.link{all:unset;cursor:pointer;color:var(--accent)!important;font-weight:500;font-size:13px}
+.link:hover{text-decoration:underline}
+.grid2{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:16px}
+.stack{display:flex;flex-direction:column;gap:16px;min-width:0}
+.btn{cursor:pointer;border:1px solid var(--line);background:var(--panel);border-radius:7px;padding:8px 13px;font-size:13.5px;font-weight:500;display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
+.btn:hover{background:var(--panel2)}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.btn.primary:hover{filter:brightness(1.08)}
+.btn.gold{border-color:var(--gold-line);color:var(--gold)}
+.btn.danger{color:var(--bad);border-color:var(--bad)}
+.btn.sm{padding:5px 9px;font-size:12.5px}
+.btn:disabled{opacity:.5;cursor:not-allowed}
+input[type=text],input[type=search],input[type=date],input[type=time],input[type=number],input[type=url],input[type=email],input[type=tel],select,textarea{width:100%;background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:8px 10px;font-size:14px;min-width:0}
+textarea{resize:vertical;min-height:70px}
+.tools{display:flex;gap:8px;flex-wrap:wrap;align-items:center;margin-bottom:12px}
+.tools>input[type=search]{flex:1 1 260px;width:auto}
+.tools>select{width:auto;flex:0 1 200px}
+.chk{display:inline-flex;align-items:center;gap:7px;cursor:pointer;user-select:none;font-size:13.5px}
+.chk input{width:16px;height:16px;accent-color:var(--accent)}
+.count{color:var(--muted);font-size:13px;margin-left:auto}
+
+/* KPIs */
+.kpis{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));border:1px solid var(--line);border-radius:10px;background:var(--panel);overflow:hidden;margin-bottom:16px}
+.kpi{all:unset;cursor:pointer;padding:15px 18px;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:3px;min-width:0}
+.kpi:last-child{border-right:0}
+.kpi:hover{background:var(--panel2)}
+.kpi:focus-visible{outline:2px solid var(--gold-line);outline-offset:-2px}
+.kpi small{font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.kpi b{font:500 30px/1.1 var(--mono);color:var(--ink);font-variant-numeric:tabular-nums;overflow-wrap:anywhere}
+.kpi b.money{font-size:23px;line-height:1.35}
+.kpi span{font-size:12.5px;color:var(--muted)}
+.kpi span.bad{color:var(--bad);font-weight:600}
+.kpi span.warn{color:var(--warn);font-weight:600}
+
+/* Listas e linhas */
+.rows{display:flex;flex-direction:column}
+.r{display:grid;gap:12px;padding:11px 16px;border-top:1px solid var(--line);align-items:start;cursor:pointer;text-align:left;background:none;border-left:0;border-right:0;border-bottom:0;width:100%}
+.r:hover{background:var(--panel2)}
+.r:focus-visible{outline:2px solid var(--gold-line);outline-offset:-2px}
+.r .t1{font-weight:600;overflow-wrap:anywhere}
+.r .t2{font-size:13px;color:var(--muted);overflow-wrap:anywhere}
+.when{display:flex;flex-direction:column;align-items:flex-start;font-family:var(--mono);font-variant-numeric:tabular-nums;font-size:13px;line-height:1.3}
+.when b{font-size:17px;font-weight:500;color:var(--ink)}
+.when span{color:var(--muted)}
+.empty{padding:28px 18px;text-align:center;color:var(--muted)}
+.empty b{display:block;color:var(--ink);font:600 17px/1.3 var(--display);margin-bottom:4px}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:600;padding:2px 8px;border-radius:999px;white-space:nowrap;background:var(--panel2);color:var(--muted);border:1px solid var(--line)}
+.pill.ok{background:var(--ok-soft);color:var(--ok);border-color:transparent}
+.pill.warn{background:var(--warn-soft);color:var(--warn);border-color:transparent}
+.pill.bad{background:var(--bad-soft);color:var(--bad);border-color:transparent}
+.pill.gold{background:var(--gold-soft);color:var(--gold);border-color:transparent}
+.pill.acc{background:var(--accent-soft);color:var(--accent);border-color:transparent}
+.pill i{width:8px;height:8px;border-radius:50%;display:inline-block}
+.tags{display:flex;gap:5px;flex-wrap:wrap;margin-top:5px}
+
+/* Processos */
+.pipe{padding:4px 16px 14px}
+.bar{display:flex;height:26px;border-radius:5px;overflow:hidden;gap:2px;background:var(--line)}
+.seg{border:0;padding:0;min-width:6px;cursor:pointer}
+.seg[aria-pressed="true"]{box-shadow:inset 0 0 0 3px var(--ink)}
+.legend{display:flex;flex-wrap:wrap;gap:6px;margin-top:12px}
+.leg{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);background:var(--panel);padding:5px 10px;border-radius:7px;font-size:13px;font-weight:500;cursor:pointer}
+.leg i{width:10px;height:10px;border-radius:3px}
+.leg b{font-family:var(--mono);font-weight:500}
+.leg[aria-pressed="true"]{background:var(--ink);color:var(--panel);border-color:var(--ink)}
+.tbl-proc .r{grid-template-columns:minmax(200px,2fr) minmax(170px,1.5fr) 132px minmax(190px,2fr) 96px}
+.thead{display:grid;gap:12px;padding:9px 16px;font-size:11.5px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.tbl-proc .thead{grid-template-columns:minmax(200px,2fr) minmax(170px,1.5fr) 132px minmax(190px,2fr) 96px}
+.cli{font:600 15.5px/1.3 var(--display)}
+.prazo{font-family:var(--mono);font-size:13px}
+.prazo.venc{color:var(--bad);font-weight:600}
+.prazo.logo{color:var(--warn);font-weight:600}
+.prazo.none{color:var(--muted)}
+.ml{display:none;font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em}
+
+/* Audiências */
+.day{margin-top:18px}
+.day:first-child{margin-top:0}
+.day-h{display:flex;gap:10px;align-items:baseline;padding:0 2px 6px;border-bottom:1px solid var(--gold-line)}
+.day-h h3{font-size:17px;color:var(--gold)}
+.day-h span{font-size:13px;color:var(--muted)}
+.aud .r{grid-template-columns:66px minmax(0,1fr) auto;border-top:0;border-bottom:1px solid var(--line);padding-inline:6px}
+.aud .r.past .when b{color:var(--muted)}
+.meta{display:flex;flex-direction:column;align-items:flex-end;gap:5px}
+
+/* Pendências */
+.pend .r{grid-template-columns:22px minmax(0,1fr) auto}
+.ckbox{width:18px;height:18px;margin-top:2px;accent-color:var(--ok);cursor:pointer}
+.r.done .t1{text-decoration:line-through;color:var(--muted)}
+.src{font-size:11.5px;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;font-weight:600}
+
+/* Financeiro */
+.fin .r{grid-template-columns:96px minmax(0,1.6fr) minmax(0,1fr) 128px 112px}
+.fin .thead{grid-template-columns:96px minmax(0,1.6fr) minmax(0,1fr) 128px 112px}
+.val{font-family:var(--mono);font-variant-numeric:tabular-nums;text-align:right;font-weight:500}
+.val.in{color:var(--ok)} .val.out{color:var(--bad)}
+.chart{padding:4px 16px 14px}
+.chart svg{width:100%;height:auto;display:block}
+.chart .lg{display:flex;gap:14px;font-size:12.5px;color:var(--muted);margin-top:6px}
+.chart .lg i{display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:5px;vertical-align:-1px}
+.split{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border-top:1px solid var(--line)}
+.split div{padding:12px 16px;border-right:1px solid var(--line)}
+.split div:last-child{border-right:0}
+.split small{display:block;font-size:12px;color:var(--muted)}
+.split b{font:500 17px/1.3 var(--mono)}
+
+/* Modelos */
+.mod-layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:16px;align-items:start}
+.mod-list{padding:6px}
+.mod-list h4{margin:12px 10px 6px;font-size:11.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:600}
+.mod-list button{all:unset;cursor:pointer;display:block;padding:8px 10px;border-radius:6px;font-size:14px;width:calc(100% - 20px)}
+.mod-list button:hover{background:var(--panel2)}
+.mod-list button[aria-current="true"]{background:var(--accent-soft);color:var(--accent);font-weight:600}
+.mod-work{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:16px;align-items:start}
+.fields{padding:14px 16px;display:grid;gap:10px}
+.fields label{font-size:12.5px;color:var(--muted);font-weight:500;display:flex;flex-direction:column;gap:3px}
+.paper{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:clamp(18px,4vw,46px);font-family:Arial, "Helvetica Neue", Helvetica, sans-serif;font-size:14px;line-height:1.65;text-align:justify;white-space:pre-wrap;overflow-wrap:anywhere;min-width:0}
+.paper .hl{background:var(--warn-soft);color:var(--warn);border-radius:3px;padding:0 3px;font-weight:600}
+.paper .tit{display:block;text-align:center;font-weight:700;color:var(--accent);letter-spacing:.02em}
+.paper .sec{font-weight:700;color:var(--accent)}
+.paper-acts{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:10px;align-items:center}
+.note{font-size:12.5px;color:var(--muted)}
+
+/* Triagem */
+.tri-types{display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px;margin-bottom:16px}
+.tri-type{all:unset;cursor:pointer;border:1px solid var(--line);background:var(--panel);border-radius:9px;padding:13px 14px;display:flex;flex-direction:column;gap:3px}
+.tri-type:hover{border-color:var(--accent)}
+.tri-type:focus-visible{outline:2px solid var(--gold-line);outline-offset:2px}
+.tri-type[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--accent-soft)}
+.tri-type b{font-weight:600}
+.tri-type span{font-size:12.5px;color:var(--muted)}
+.qs{padding:6px 16px 16px;display:flex;flex-direction:column}
+.q{padding:13px 0;border-top:1px solid var(--line);display:grid;gap:7px}
+.q:first-child{border-top:0}
+.q .qt{font-weight:600}
+.q .qh{font-size:12.5px;color:var(--muted)}
+.opts{display:flex;flex-wrap:wrap;gap:6px}
+.opt{all:unset;cursor:pointer;border:1px solid var(--line);border-radius:7px;padding:6px 11px;font-size:13.5px;background:var(--panel)}
+.opt:hover{background:var(--panel2)}
+.opt:focus-visible{outline:2px solid var(--gold-line);outline-offset:1px}
+.opt[aria-pressed="true"]{background:var(--accent);border-color:var(--accent);color:var(--accent-ink)}
+.verdict{padding:16px}
+.meter{height:10px;border-radius:999px;background:var(--panel2);border:1px solid var(--line);overflow:hidden;margin:10px 0 6px}
+.meter i{display:block;height:100%;border-radius:999px}
+.vb{font:600 24px/1.2 var(--display)}
+.vlist h4{margin:14px 0 4px;font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+.vlist ul{margin:0;padding-left:18px}
+.vlist li{margin:3px 0}
+.tri-side{position:sticky;top:16px;align-self:start}
+@media (max-width:1100px){.tri-side{position:static}}
+.parecer{white-space:pre-wrap;font-size:13.5px;border-top:1px solid var(--line);margin-top:14px;padding-top:12px}
+
+/* Modal */
+dialog{border:1px solid var(--line);border-radius:12px;background:var(--panel);color:var(--ink);padding:0;width:min(720px,calc(100vw - 24px));max-height:calc(100vh - 32px)}
+dialog::backdrop{background:rgba(4,14,26,.55)}
+.dh{display:flex;justify-content:space-between;align-items:center;padding:15px 20px;border-bottom:1px solid var(--line);position:sticky;top:0;background:var(--panel);z-index:2}
+.dh h2{font-size:20px}
+.x{all:unset;cursor:pointer;font-size:22px;line-height:1;padding:4px 8px;border-radius:6px;color:var(--muted)}
+.x:hover{background:var(--panel2)}
+.db{padding:16px 20px;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:11px}
+.f{display:flex;flex-direction:column;gap:4px;grid-column:span 3;min-width:0}
+.f.s2{grid-column:span 2}.f.s6{grid-column:span 6}
+.f>label{font-size:12.5px;color:var(--muted);font-weight:500}
+.f.chkf{flex-direction:row;align-items:center;gap:8px}
+.df{display:flex;gap:8px;padding:13px 20px;border-top:1px solid var(--line);position:sticky;bottom:0;background:var(--panel);flex-wrap:wrap;align-items:center}
+.spacer{flex:1}
+.confirm{display:flex;gap:8px;align-items:center;flex-wrap:wrap;font-size:13px;color:var(--bad);font-weight:500}
+.msgbox{grid-column:span 6;white-space:pre-wrap;background:var(--panel2);border:1px solid var(--line);border-radius:8px;padding:12px 14px;font-size:13.5px;max-height:44vh;overflow:auto}
+.checks{grid-column:span 6;border:1px solid var(--line);border-radius:8px;padding:8px 12px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:2px 14px}
+.checks .hd{grid-column:span 2;font-size:12.5px;color:var(--muted);font-weight:500;padding:2px 0 4px}
+
+.notice{background:var(--warn-soft);border:1px solid transparent;color:var(--ink);border-radius:9px;padding:11px 14px;margin-bottom:14px;font-size:13.5px}
+.toast{position:fixed;left:50%;bottom:calc(22px + env(safe-area-inset-bottom,0px));transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:10px 16px;border-radius:8px;font-size:13.5px;opacity:0;pointer-events:none;transition:opacity .2s;max-width:calc(100vw - 32px);z-index:60}
+.toast.on{opacity:1}
+
+@media (max-width:1100px){
+  .grid2{grid-template-columns:1fr}
+  .mod-work{grid-template-columns:1fr}
+}
+@media (max-width:900px){
+  .app{grid-template-columns:1fr}
+  .side{position:sticky;top:0;height:auto;flex-direction:row;align-items:center;gap:10px;padding:10px 12px;padding-top:calc(10px + env(safe-area-inset-top,0px));z-index:20;overflow-x:auto;overflow-y:hidden}
+  .brand{border:0;padding:0 6px 0 2px;margin:0;flex:none}
+  .brand span{display:none}
+  .brand b{font-size:16px}
+  .nav{flex-direction:row;gap:2px;flex:none}
+  .nav button{padding:7px 10px;font-size:13px}
+  .nav button svg{display:none}
+  .nav button[aria-current="page"]{box-shadow:inset 0 -2px 0 var(--gold-line)}
+  .side-foot{display:none}
+  .kpis{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .kpi:nth-child(2){border-right:0}
+  .kpi:nth-child(-n+2){border-bottom:1px solid var(--line)}
+  .mod-layout{grid-template-columns:1fr}
+  .thead{display:none}
+  .tbl-proc .r,.fin .r{grid-template-columns:1fr 1fr;gap:6px 12px}
+  .tbl-proc .r>.c-caso,.tbl-proc .r>.c-prox,.fin .r>.c-desc{grid-column:1/-1}
+  .ml{display:block}
+  .split{grid-template-columns:1fr}
+  .split div{border-right:0;border-bottom:1px solid var(--line)}
+}
+@media (max-width:560px){
+  .f,.f.s2{grid-column:span 6}
+  .aud .r{grid-template-columns:56px minmax(0,1fr)}
+  .aud .meta{grid-column:2;flex-direction:row;flex-wrap:wrap;align-items:center}
+  .pend .r{grid-template-columns:22px minmax(0,1fr)}
+  .pend .r .meta{grid-column:2;align-items:flex-start;flex-direction:row;flex-wrap:wrap}
+  .checks{grid-template-columns:1fr}.checks .hd{grid-column:span 1}
+  .kpi b{font-size:25px}.kpi b.money{font-size:18px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="app">
+  <aside class="side" aria-label="Menu">
+    <div class="brand"><b>Tiana Ribeiro</b><span>Advocacia e Consultoria</span></div>
+    <nav class="nav" id="nav"></nav>
+    <div class="side-foot">
+      <div class="sync"><span class="dot" id="syncDot"></span><span id="syncTxt">Conectando…</span></div>
+      <button type="button" id="btnConfig">Dados do escritório</button>
+    </div>
+  </aside>
+  <main id="main"></main>
+</div>
+
+<dialog id="dlg"><form method="dialog" id="dlgForm"></form></dialog>
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script>
+/* ============================== CONSTANTES ============================== */
+const FASES=[
+ {k:"Análise",v:"--f1"},{k:"Pré-ajuizamento",v:"--f2"},{k:"Extrajudicial",v:"--f3"},{k:"Consultivo",v:"--f4"},
+ {k:"1º grau",v:"--f5"},{k:"Recurso",v:"--f6"},{k:"Execução de sentença",v:"--f8"},{k:"Finalizado",v:"--f7"}];
+const ORDFASE=Object.fromEntries(FASES.map((f,i)=>[f.k,i]));
+const AREAS=["Consumidor","Previdenciário","Trabalhista","Família","Imobiliário","Administrativo","Tributário","Cível","Justiça Federal"];
+const CHECK_AUD=[["cliente","Cliente avisado e confirmou"],["docs","Documento com foto do cliente"],["provas","Provas e testemunhas organizadas"],["defesa","Contestação lida (se houver)"],["acordo","Proposta mínima de acordo definida"],["acesso","Link da sala testado"]];
+const CAT_REC=["Honorários iniciais","Parcela de honorários","Honorários de êxito","Honorários de sucumbência","Consulta","Outros"];
+const CAT_DESP=["Custas e preparo","Diligências e deslocamento","Cartório e certidões","Repasse a parceiro","Anúncios e marketing","Sistemas e assinaturas","Aluguel e estrutura","Outras despesas"];
+const TIPO_TAREFA=["Prazo processual","Documento do cliente","Protocolo","Contato com cliente","Financeiro","Outro"];
+
+const ICONS={
+ inicio:'<svg viewBox="0 0 24 24"><path d="M3 11l9-7 9 7"/><path d="M5 10v10h14V10"/></svg>',
+ processos:'<svg viewBox="0 0 24 24"><path d="M4 4h11l5 5v11H4z"/><path d="M15 4v5h5M8 13h8M8 17h6"/></svg>',
+ audiencias:'<svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/></svg>',
+ pendencias:'<svg viewBox="0 0 24 24"><path d="M9 6h11M9 12h11M9 18h11"/><path d="M3.5 6l1.5 1.5L7 5M3.5 12l1.5 1.5L7 11M3.5 18l1.5 1.5L7 17"/></svg>',
+ financeiro:'<svg viewBox="0 0 24 24"><rect x="2.5" y="6" width="19" height="13" rx="2"/><circle cx="12" cy="12.5" r="2.6"/><path d="M6 9.5v6M18 9.5v6"/></svg>',
+ modelos:'<svg viewBox="0 0 24 24"><path d="M6 3h9l4 4v14H6z"/><path d="M9 11h7M9 15h7M9 7h3"/></svg>',
+ triagem:'<svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5M8.5 11l2 2 3.5-3.5"/></svg>'
+};
+const VIEWS=[["inicio","Início"],["processos","Processos"],["audiencias","Audiências"],["pendencias","Pendências"],["financeiro","Financeiro"],["modelos","Modelos"],["triagem","Triagem"]];
+
+/* ============================== ESTADO ============================== */
+const S={casos:[],audiencias:[],tarefas:[],lancamentos:[],modelos:[],config:[],ok:{}};
+let db=null,sample=null,dl=null,podeEscrever=true;
+const COLS=["casos","audiencias","tarefas","lancamentos","modelos","config"];
+let view="inicio";
+const F={proc:{fase:null,q:"",area:"",parc:"",conf:false,fin:false},aud:{st:"proximas",q:""},pend:{st:"abertas",q:"",src:""},fin:{mes:mesAtual(),q:"",tipo:"",st:""},mod:{id:"proc-adjudicia",casoId:"",vals:{}},tri:{tipo:null,resp:{},parecer:"",cliente:"",contra:""}};
+
+/* ============================== UTILITÁRIOS ============================== */
+const $=id=>document.getElementById(id);
+function esc(s){return String(s??"").replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+function hoje(){const d=new Date();d.setHours(0,0,0,0);return d}
+function iso(d){return d.getFullYear()+"-"+String(d.getMonth()+1).padStart(2,"0")+"-"+String(d.getDate()).padStart(2,"0")}
+function hojeISO(){return iso(new Date())}
+function mesAtual(){return hojeISO().slice(0,7)}
+function dt(s){return s?new Date(s+"T00:00:00"):null}
+function fmtD(s){if(!s)return "";const[y,m,d]=s.split("-");return d+"/"+m+"/"+y}
+function fmtDc(s){if(!s)return "";const[y,m,d]=s.split("-");return d+"/"+m}
+function dias(s){if(!s)return null;return Math.round((dt(s)-hoje())/864e5)}
+const SEM=["domingo","segunda-feira","terça-feira","quarta-feira","quinta-feira","sexta-feira","sábado"];
+const MES=["janeiro","fevereiro","março","abril","maio","junho","julho","agosto","setembro","outubro","novembro","dezembro"];
+const MESC=["jan","fev","mar","abr","mai","jun","jul","ago","set","out","nov","dez"];
+function extenso(s){const d=dt(s);return d.getDate()+" de "+MES[d.getMonth()]+" de "+d.getFullYear()}
+function brl(n){return (Number(n)||0).toLocaleString("pt-BR",{style:"currency",currency:"BRL"})}
+function relDia(s){const n=dias(s);if(n===0)return "hoje";if(n===1)return "amanhã";if(n===-1)return "ontem";if(n<0)return "há "+(-n)+" dias";return "em "+n+" dias"}
+function toast(m){const t=$("toast");t.textContent=m;t.classList.add("on");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("on"),2800)}
+function corFase(k){const f=FASES.find(x=>x.k===k);return f?"var("+f.v+")":"var(--f7)"}
+function norm(s){return String(s||"").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"")}
+function ativo(c){return c.fase!=="Finalizado"}
+function classePrazo(s){if(!s)return "none";const n=dias(s);if(n<0)return "venc";if(n<=7)return "logo";return ""}
+async function copiar(txt,btn){
+  try{await navigator.clipboard.writeText(txt);toast("Copiado")}
+  catch(e){const ta=document.createElement("textarea");ta.value=txt;ta.style.position="fixed";ta.style.opacity="0";document.body.appendChild(ta);ta.select();let ok=false;try{ok=document.execCommand("copy")}catch(_){}ta.remove();toast(ok?"Copiado":"Selecione o texto e copie manualmente")}
+}
+function falha(e){console.error(e);const c=e&&e.code;toast(c==="not_granted"||c==="permission_denied"?"Você não tem permissão para alterar estes dados.":"Não foi possível salvar. Verifique a conexão e tente de novo.")}
+function moeda(v){let s=String(v||"").replace(/R\$|\s/g,"");if(!s)return "";if(s.includes(","))s=s.replace(/\./g,"").replace(",",".");else if(/^\d{1,3}(\.\d{3})+$/.test(s))s=s.replace(/\./g,"");const n=Number(s);return isFinite(n)?Math.round(n*100)/100:""}
+function lsGet(k){try{return localStorage.getItem(k)}catch(_){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(_){}}
+function cfg(){return (S.config.find(x=>x.id==="escritorio"))||{}}
+
+/* ============================== BANCO ============================== */
+async function salvar(col,id,dados){
+  if(!db){toast("Abra o sistema pelo claude.ai para salvar.");return false}
+  try{
+    dados.atualizado=hojeISO();
+    if(id) await db.collection(col).doc(id).update(dados);
+    else await db.collection(col).add(dados);
+    return true;
+  }catch(e){falha(e);return false}
+}
+async function excluir(col,id){if(!db)return false;try{await db.collection(col).doc(id).delete();return true}catch(e){falha(e);return false}}
+
+/* ============================== NAVEGAÇÃO ============================== */
+function contadores(){
+  const pv=pendencias().filter(p=>!p.feito&&p.prazo&&dias(p.prazo)<=0).length;
+  const au=S.audiencias.filter(a=>a.status!=="cancelada"&&a.status!=="realizada"&&a.data&&dias(a.data)>=0&&dias(a.data)<=7).length;
+  return {pendencias:pv?{n:pv,bad:true}:null,audiencias:au?{n:au}:null,processos:{n:S.casos.filter(ativo).length}};
+}
+function renderNav(){
+  const c=contadores();
+  $("nav").innerHTML=VIEWS.map(([k,t])=>{const b=c[k];return `<button type="button" data-v="${k}" ${view===k?'aria-current="page"':""}>${ICONS[k]}<span>${t}</span>${b?`<span class="badge ${b.bad?"bad":""}">${b.n}</span>`:""}</button>`}).join("");
+}
+$("nav").addEventListener("click",e=>{const b=e.target.closest("button[data-v]");if(b)ir(b.dataset.v)});
+function ir(v){view=v;lsSet("esc.view",v);try{history.replaceState(null,"","#"+v)}catch(_){}render();window.scrollTo({top:0})}
+function render(){renderNav();const m=$("main");const fn={inicio:vInicio,processos:vProcessos,audiencias:vAudiencias,pendencias:vPendencias,financeiro:vFinanceiro,modelos:vModelos,triagem:vTriagem}[view]||vInicio;m.innerHTML=fn();(posRender[view]||(()=>{}))()}
+const posRender={};
+
+/* ============================== PENDÊNCIAS (unificadas) ============================== */
+function pendencias(){
+  const out=[];
+  S.tarefas.forEach(t=>out.push({src:"Tarefa",id:t.id,titulo:t.titulo,sub:[t.caso,t.tipo,t.responsavel].filter(Boolean).join(" · "),prazo:t.prazo||"",feito:!!t.feito,prioridade:t.prioridade||"Normal",abrir:()=>formTarefa(t)}));
+  S.casos.filter(ativo).forEach(c=>{
+    if(c.prazo&&c.proximo&&!/^nenhum/i.test(c.proximo)) out.push({src:"Processo",id:"c:"+c.id,titulo:c.proximo,sub:[c.cliente,c.contra].filter(Boolean).join(" x "),prazo:c.prazo,feito:false,abrir:()=>formCaso(c)});
+    if(c.conferir||c.incompleto) out.push({src:"Cadastro",id:"k:"+c.id,titulo:c.conferir?"Conferir dados do processo":"Completar cadastro",sub:[c.cliente,c.contra].filter(Boolean).join(" x "),prazo:"",feito:false,abrir:()=>formCaso(c)});
+  });
+  S.audiencias.filter(a=>a.status==="ativa"&&a.data&&dias(a.data)>=0&&dias(a.data)<=10).forEach(a=>{
+    const ck=a.checklist||{};const falt=CHECK_AUD.filter(([k])=>!ck[k]).length;
+    if(falt) out.push({src:"Audiência",id:"a:"+a.id,titulo:`Preparar audiência — faltam ${falt} de ${CHECK_AUD.length} itens`,sub:[a.parte,a.contraparte].filter(Boolean).join(" x ")+" · "+fmtD(a.data)+" "+(a.hora||""),prazo:a.data,feito:false,abrir:()=>formAud(a)});
+    if(!a.conferida) out.push({src:"Audiência",id:"ac:"+a.id,titulo:"Conferir audiência no sistema do tribunal",sub:[a.parte,a.contraparte].filter(Boolean).join(" x ")+" · "+fmtD(a.data),prazo:a.data,feito:false,abrir:()=>formAud(a)});
+  });
+  S.lancamentos.filter(l=>l.tipo==="receita"&&!l.pagoEm&&l.vencimento&&dias(l.vencimento)<0).forEach(l=>out.push({src:"Financeiro",id:"f:"+l.id,titulo:"Cobrar: "+(l.descricao||"recebimento em atraso"),sub:[l.cliente,brl(l.valor)].filter(Boolean).join(" · "),prazo:l.vencimento,feito:false,abrir:()=>formLanc(l)}));
+  return out;
+}
+function ordPend(a,b){if(a.feito!==b.feito)return a.feito?1:-1;const pa=a.prazo||"9999",pb=b.prazo||"9999";return pa<pb?-1:pa>pb?1:0}
+function linhaPend(p){
+  const n=p.prazo?dias(p.prazo):null;
+  const cls=p.feito?"ok":n===null?"":n<0?"bad":n<=2?"warn":"";
+  const tx=p.feito?"Feito":n===null?"Sem prazo":n<0?"Vencida "+relDia(p.prazo):relDia(p.prazo);
+  return `<div class="r ${p.feito?"done":""}" role="button" tabindex="0" data-pid="${esc(p.id)}">
+    ${p.src==="Tarefa"?`<input type="checkbox" class="ckbox" data-feito="${esc(p.id)}" ${p.feito?"checked":""} aria-label="Marcar como feita">`:`<span></span>`}
+    <div style="min-width:0"><div class="src">${esc(p.src)}${p.prioridade==="Alta"&&!p.feito?' · <span style="color:var(--bad)">Prioridade alta</span>':""}</div><div class="t1">${esc(p.titulo)}</div><div class="t2">${esc(p.sub)}</div></div>
+    <div class="meta"><span class="pill ${cls}">${esc(tx)}</span>${p.prazo?`<span class="prazo">${fmtD(p.prazo)}</span>`:""}</div></div>`;
+}
+function bindPend(lista){
+  const mapa=Object.fromEntries(lista.map(p=>[p.id,p]));
+  document.querySelectorAll("[data-pid]").forEach(el=>{
+    const go=e=>{if(e.target.closest("[data-feito]"))return;mapa[el.dataset.pid]&&mapa[el.dataset.pid].abrir()};
+    el.addEventListener("click",go);el.addEventListener("keydown",e=>{if(e.key==="Enter")go(e)});
+  });
+  document.querySelectorAll("[data-feito]").forEach(cb=>cb.addEventListener("change",async e=>{
+    e.stopPropagation();const t=S.tarefas.find(x=>x.id===cb.dataset.feito);if(!t)return;
+    if(await salvar("tarefas",t.id,{feito:cb.checked,feitoEm:cb.checked?hojeISO():""})) toast(cb.checked?"Pendência concluída":"Pendência reaberta");
+  }));
+}
+
+/* ============================== INÍCIO ============================== */
+function vInicio(){
+  const at=S.casos.filter(ativo);
+  const prox=S.audiencias.filter(a=>a.status==="ativa"&&a.data&&dias(a.data)>=0).sort((a,b)=>(a.data+a.hora)<(b.data+b.hora)?-1:1);
+  const prox30=prox.filter(a=>dias(a.data)<=30);
+  const pend=pendencias().filter(p=>!p.feito);
+  const venc=pend.filter(p=>p.prazo&&dias(p.prazo)<0).length, hojeN=pend.filter(p=>p.prazo&&dias(p.prazo)===0).length;
+  const m=mesAtual();
+  const recMes=S.lancamentos.filter(l=>l.tipo==="receita"&&l.pagoEm&&l.pagoEm.slice(0,7)===m).reduce((s,l)=>s+(+l.valor||0),0);
+  const aRec=S.lancamentos.filter(l=>l.tipo==="receita"&&!l.pagoEm).reduce((s,l)=>s+(+l.valor||0),0);
+  const atras=S.lancamentos.filter(l=>l.tipo==="receita"&&!l.pagoEm&&l.vencimento&&dias(l.vencimento)<0).length;
+  const d=new Date();
+  const urg=pend.filter(p=>p.prazo&&dias(p.prazo)<=7).sort(ordPend).slice(0,7);
+  const conf=at.filter(c=>c.conferir).length;
+  posRender.inicio=()=>{bindPend(urg);bindAudRows(prox.slice(0,6));bindPipe(at,true);
+    document.querySelectorAll("[data-go]").forEach(b=>b.addEventListener("click",()=>{if(b.dataset.pfin){F.proc.fin=false}ir(b.dataset.go)}))};
+  return `
+  <div class="view-h"><div><h1>${saud()}, Dra. Tiana</h1><p>${SEM[d.getDay()].replace(/^./,c=>c.toUpperCase())}, ${extenso(hojeISO())}</p></div>
+  <div class="acts"><button class="btn" type="button" onclick="ir('triagem')">Triar caso novo</button><button class="btn" type="button" onclick="formTarefa()">+ Pendência</button><button class="btn primary" type="button" onclick="formCaso()">+ Processo</button></div></div>
+  ${aviso()}
+  <section class="kpis">
+    <button class="kpi" type="button" data-go="processos"><small>Processos ativos</small><b>${at.length}</b><span>${conf?`<span class="warn">${conf} a conferir</span>`:S.casos.length-at.length+" finalizados"}</span></button>
+    <button class="kpi" type="button" data-go="audiencias"><small>Audiências · 30 dias</small><b>${prox30.length}</b><span>${prox[0]?"Próxima "+relDia(prox[0].data)+" às "+(prox[0].hora||"--"):"Nenhuma marcada"}</span></button>
+    <button class="kpi" type="button" data-go="pendencias"><small>Pendências abertas</small><b>${pend.length}</b><span class="${venc?"bad":hojeN?"warn":""}">${venc?venc+" vencidas":hojeN?hojeN+" para hoje":"Nada vencido"}</span></button>
+    <button class="kpi" type="button" data-go="financeiro"><small>Recebido no mês</small><b class="money">${brl(recMes)}</b><span class="${atras?"bad":""}">${atras?atras+" em atraso · ":""}${brl(aRec)} a receber</span></button>
+  </section>
+  <div class="grid2">
+    <div class="stack">
+      <section class="panel"><div class="ph"><h2>Pendências da semana</h2><button class="link" type="button" data-go="pendencias">Ver todas</button></div>
+        <div class="rows pend">${urg.length?urg.map(linhaPend).join(""):`<div class="empty"><b>Semana limpa</b>Nada vence nos próximos 7 dias.</div>`}</div></section>
+      <section class="panel"><div class="ph"><h2>Processos por fase</h2><button class="link" type="button" data-go="processos">Abrir processos</button></div>${pipeHTML(at,true)}</section>
+    </div>
+    <div class="stack">
+      <section class="panel"><div class="ph"><h2>Próximas audiências</h2><button class="link" type="button" data-go="audiencias">Agenda completa</button></div>
+        <div class="rows aud" style="padding:0 10px 6px">${prox.length?prox.slice(0,6).map(a=>linhaAud(a,true)).join(""):`<div class="empty"><b>Agenda livre</b>Nenhuma audiência futura cadastrada.</div>`}</div></section>
+      ${miniFin()}
+    </div>
+  </div>`;
+}
+function saud(){const h=new Date().getHours();return h<12?"Bom dia":h<18?"Boa tarde":"Boa noite"}
+function aviso(){
+  if(!S.ok.conectado&&S.ok.tentou) return `<div class="notice">${esc(S.ok.msg||"Abra o sistema pelo claude.ai, com sua conta conectada, para ver e editar os dados.")}</div>`;
+  if(!S.ok.conectado) return `<div class="notice" style="background:var(--panel2)">Carregando os dados do escritório…</div>`;
+  return "";
+}
+function miniFin(){
+  const m=mesAtual();const rec=S.lancamentos.filter(l=>l.tipo==="receita"&&(l.pagoEm||"").slice(0,7)===m).reduce((s,l)=>s+(+l.valor||0),0);
+  const desp=S.lancamentos.filter(l=>l.tipo==="despesa"&&(l.pagoEm||l.vencimento||"").slice(0,7)===m).reduce((s,l)=>s+(+l.valor||0),0);
+  const prev=S.lancamentos.filter(l=>l.tipo==="receita"&&!l.pagoEm&&(l.vencimento||"").slice(0,7)===m).reduce((s,l)=>s+(+l.valor||0),0);
+  return `<section class="panel"><div class="ph"><h2>Financeiro de ${MES[+m.slice(5)-1]}</h2><button class="link" type="button" data-go="financeiro">Abrir financeiro</button></div>
+  ${S.lancamentos.length?`<div class="split"><div><small>Recebido</small><b style="color:var(--ok)">${brl(rec)}</b></div><div><small>A receber no mês</small><b>${brl(prev)}</b></div><div><small>Despesas</small><b style="color:var(--bad)">${brl(desp)}</b></div></div>`
+  :`<div class="empty" style="border-top:1px solid var(--line)"><b>Sem lançamentos ainda</b>Cadastre honorários e despesas para acompanhar o caixa.<div style="margin-top:10px"><button class="btn sm" type="button" onclick="formLanc()">+ Lançamento</button></div></div>`}</section>`;
+}
+
+/* ============================== PROCESSOS ============================== */
+function pipeHTML(lista,compact){
+  const tot=lista.length||1;const cont=Object.fromEntries(FASES.map(f=>[f.k,0]));lista.forEach(c=>{if(c.fase in cont)cont[c.fase]++});
+  const fs=FASES.filter(f=>compact?f.k!=="Finalizado":true);
+  return `<div class="pipe"><div class="bar">${fs.filter(f=>cont[f.k]).map(f=>`<button class="seg" type="button" data-fase="${f.k}" aria-pressed="${F.proc.fase===f.k}" title="${f.k}: ${cont[f.k]}" style="flex:${cont[f.k]};background:var(${f.v})"></button>`).join("")||'<span style="flex:1"></span>'}</div>
+  <div class="legend">${fs.map(f=>`<button class="leg" type="button" data-fase="${f.k}" aria-pressed="${F.proc.fase===f.k}"><i style="background:var(${f.v})"></i>${f.k} <b>${cont[f.k]}</b></button>`).join("")}</div></div>`;
+}
+function bindPipe(lista,navega){
+  document.querySelectorAll("[data-fase]").forEach(b=>b.addEventListener("click",()=>{
+    F.proc.fase=F.proc.fase===b.dataset.fase?null:b.dataset.fase;
+    if(b.dataset.fase==="Finalizado")F.proc.fin=true;
+    if(navega)ir("processos");else render();
+  }));
+}
+function vProcessos(){
+  const f=F.proc,q=norm(f.q);
+  const parcs=[...new Set(S.casos.map(c=>(c.parceria||"").trim()).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt-BR"));
+  const areas=[...new Set(S.casos.map(c=>c.area).filter(Boolean))].sort();
+  const base=S.casos.filter(c=>f.fin||f.fase==="Finalizado"||ativo(c));
+  const lista=base.filter(c=>(!f.fase||c.fase===f.fase)&&(!f.area||c.area===f.area)&&(!f.parc||(c.parceria||"").trim()===f.parc)&&(!f.conf||c.conferir||c.incompleto)&&(!q||norm([c.cliente,c.contra,c.processo,c.juizo,c.proximo,c.obs,c.parceria].join(" ")).includes(q)))
+   .sort((a,b)=>{if(!!b.conferir-!!a.conferir)return !!b.conferir-!!a.conferir;const pa=a.prazo||"9999",pb=b.prazo||"9999";if(pa!==pb)return pa<pb?-1:1;return (ORDFASE[a.fase]??99)-(ORDFASE[b.fase]??99)||String(a.cliente).localeCompare(String(b.cliente),"pt-BR")});
+  posRender.processos=()=>{
+    bindPipe(S.casos,false);
+    const s=$("pq");s.addEventListener("input",()=>{f.q=s.value;rerenderLista()});
+    $("pa").onchange=e=>{f.area=e.target.value;render()};$("pp").onchange=e=>{f.parc=e.target.value;render()};
+    $("pc").onchange=e=>{f.conf=e.target.checked;render()};$("pf").onchange=e=>{f.fin=e.target.checked;render()};
+    bindProcRows();
+  };
+  return `<div class="view-h"><div><h1>Processos</h1><p>${S.casos.filter(ativo).length} ativos · ${S.casos.length} no total</p></div>
+  <div class="acts"><button class="btn" type="button" onclick="ir('triagem')">Triar caso novo</button><button class="btn primary" type="button" onclick="formCaso()">+ Processo</button></div></div>
+  ${aviso()}
+  <section class="panel" style="margin-bottom:14px">${pipeHTML(S.casos,false)}</section>
+  <div class="tools">
+    <input type="search" id="pq" value="${esc(f.q)}" placeholder="Buscar cliente, parte contrária, nº do processo, juízo" aria-label="Buscar processos">
+    <select id="pa" aria-label="Área"><option value="">Todas as áreas</option>${areas.map(a=>`<option ${f.area===a?"selected":""}>${esc(a)}</option>`).join("")}</select>
+    <select id="pp" aria-label="Parceria"><option value="">Todas as parcerias</option>${parcs.map(a=>`<option ${f.parc===a?"selected":""}>${esc(a)}</option>`).join("")}</select>
+    <label class="chk"><input type="checkbox" id="pc" ${f.conf?"checked":""}> A conferir</label>
+    <label class="chk"><input type="checkbox" id="pf" ${f.fin?"checked":""}> Mostrar finalizados</label>
+  </div>
+  <section class="panel tbl-proc"><div class="thead"><span>Cliente e parte contrária</span><span>Processo e juízo</span><span>Fase</span><span>Próximo passo</span><span>Prazo</span></div>
+  <div class="rows" id="procRows">${linhasProc(lista)}</div></section>`;
+}
+let _procLista=[];
+function linhasProc(lista){
+  _procLista=lista;
+  if(!lista.length) return `<div class="empty"><b>${S.casos.length?"Nenhum processo com esses filtros":"Nenhum processo cadastrado"}</b>${S.casos.length?"Limpe a busca ou os filtros.":"Use “+ Processo” ou a Triagem para cadastrar o primeiro."}</div>`;
+  return lista.map(c=>`<div class="r" role="button" tabindex="0" data-cid="${esc(c.id)}">
+    <div class="c-caso" style="min-width:0"><div class="cli">${esc(c.cliente||"(sem nome)")}</div><div class="t2">${c.contra?"x "+esc(c.contra):""}</div>
+      <div class="tags">${c.area?`<span class="pill">${esc(c.area)}</span>`:""}${c.parceria?`<span class="pill gold">${esc(c.parceria)}</span>`:""}${c.conferir?'<span class="pill warn">Conferir</span>':""}${c.incompleto?'<span class="pill warn">Completar</span>':""}</div></div>
+    <div style="min-width:0"><span class="ml">Processo</span><div class="mono" style="font-size:12.5px;overflow-wrap:anywhere">${esc(c.processo||"—")}</div><div class="t2">${esc(c.juizo||"")}</div></div>
+    <div><span class="ml">Fase</span><span class="pill" style="border-color:transparent;background:var(--panel2);color:var(--ink)"><i style="background:${corFase(c.fase)}"></i>${esc(c.fase||"—")}</span></div>
+    <div class="c-prox" style="min-width:0"><span class="ml">Próximo passo</span><div style="font-size:13.5px">${esc(c.proximo||"—")}</div></div>
+    <div><span class="ml">Prazo</span><span class="prazo ${classePrazo(c.prazo)}">${c.prazo?fmtD(c.prazo):"—"}</span></div></div>`).join("");
+}
+function rerenderLista(){render();const s=$("pq");if(s){s.focus();s.setSelectionRange(s.value.length,s.value.length)}}
+function bindProcRows(){document.querySelectorAll("[data-cid]").forEach(el=>{const go=()=>{const c=S.casos.find(x=>x.id===el.dataset.cid);c&&formCaso(c)};el.addEventListener("click",go);el.addEventListener("keydown",e=>{if(e.key==="Enter")go()})})}
+
+/* ============================== MODAL GENÉRICO ============================== */
+function modal({titulo,campos,valores={},onSave,onDelete,extra="",extraFoot="",depois}){
+  const v=valores;
+  const html=`<div class="dh"><h2>${esc(titulo)}</h2><button class="x" value="cancel" aria-label="Fechar">×</button></div>
+  <div class="db">${campos.map(c=>{
+    const id="m_"+c.k,val=v[c.k]??c.def??"";const span=c.span===6?"s6":c.span===2?"s2":"";
+    if(c.t==="check")return `<label class="f s6 chkf chk"><input type="checkbox" id="${id}" ${val?"checked":""}> ${esc(c.l)}</label>`;
+    let inp;
+    if(c.t==="select")inp=`<select id="${id}">${c.o.map(o=>`<option ${String(val)===String(o)?"selected":""}>${esc(o)}</option>`).join("")}</select>`;
+    else if(c.t==="area")inp=`<textarea id="${id}" rows="${c.rows||3}">${esc(val)}</textarea>`;
+    else if(c.t==="money")inp=`<input type="text" inputmode="decimal" id="${id}" value="${val===""?"":esc(Number(val).toLocaleString("pt-BR",{minimumFractionDigits:2,maximumFractionDigits:2}))}" placeholder="0,00">`;
+    else inp=`<input type="${c.t||"text"}" id="${id}" value="${esc(val)}" ${c.list?`list="${c.list}"`:""} ${c.ph?`placeholder="${esc(c.ph)}"`:""} ${c.t==="number"?'step="0.01" inputmode="decimal"':""}>`;
+    return `<div class="f ${span}"><label for="${id}">${esc(c.l)}</label>${inp}</div>`}).join("")}${extra}</div>
+  <div class="df">${onDelete?`<span id="delZone"><button class="btn danger" type="button" id="mDel">Excluir</button></span>`:""}${extraFoot}<span class="spacer"></span><button class="btn" value="cancel">Cancelar</button><button class="btn primary" type="button" id="mSave">Salvar</button></div>
+  ${datalists()}`;
+  const d=$("dlg");$("dlgForm").innerHTML=html;
+  $("mSave").onclick=async()=>{
+    const out={};campos.forEach(c=>{const el=$("m_"+c.k);out[c.k]=c.t==="check"?el.checked:c.t==="money"?moeda(el.value):c.t==="number"?(el.value===""?"":Number(String(el.value).replace(",","."))):el.value.trim()});
+    $("mSave").disabled=true;const ok=await onSave(out);$("mSave").disabled=false;if(ok!==false)d.close();
+  };
+  if(onDelete)$("mDel").onclick=()=>{$("delZone").innerHTML=`<span class="confirm">Excluir definitivamente? <button class="btn sm danger" type="button" id="mDel2">Sim, excluir</button><button class="btn sm" type="button" id="mDel3">Não</button></span>`;
+    $("mDel2").onclick=async()=>{if(await onDelete()){d.close();toast("Excluído")}};$("mDel3").onclick=()=>modal(arguments[0])};
+  if(!d.open)d.showModal();
+  depois&&depois();
+}
+function datalists(){
+  const parcs=[...new Set(S.casos.map(c=>(c.parceria||"").trim()).filter(Boolean))];
+  const clientes=[...new Set(S.casos.map(c=>c.cliente).filter(Boolean))].sort((a,b)=>a.localeCompare(b,"pt-BR"));
+  return `<datalist id="dlArea">${AREAS.map(a=>`<option value="${esc(a)}">`).join("")}</datalist>
+  <datalist id="dlParc">${parcs.map(a=>`<option value="${esc(a)}">`).join("")}</datalist>
+  <datalist id="dlCli">${clientes.map(a=>`<option value="${esc(a)}">`).join("")}</datalist>`;
+}
+
+/* ============================== FORMULÁRIOS ============================== */
+function formCaso(c){
+  c=c||null;
+  const auds=c?S.audiencias.filter(a=>a.processo&&a.processo===c.processo||norm(a.parte)===norm(c.cliente)):[];
+  const lanc=c?S.lancamentos.filter(l=>norm(l.cliente)===norm(c.cliente)):[];
+  const extra=c?`<div class="f s6" style="border-top:1px solid var(--line);padding-top:10px;margin-top:4px"><label>Vinculados a este cliente</label>
+    <div class="t2" style="font-size:13px">${auds.length?auds.map(a=>"Audiência "+fmtD(a.data)+" "+(a.hora||"")).join(" · "):"Nenhuma audiência"} · ${lanc.length?lanc.length+" lançamento(s) financeiro(s), "+brl(lanc.filter(l=>l.tipo==="receita").reduce((s,l)=>s+(+l.valor||0),0))+" em receitas":"Nenhum lançamento financeiro"}</div></div>`:"";
+  const foot=c?`<button class="btn" type="button" id="xAud">+ Audiência</button><button class="btn" type="button" id="xFin">+ Honorários</button><button class="btn" type="button" id="xDoc">Gerar documento</button>`:"";
+  modal({titulo:c?"Processo":"Novo processo",valores:c||{fase:"Análise",area:"Consumidor",polo:"Autor(a)"},campos:[
+    {k:"cliente",l:"Cliente"},{k:"contra",l:"Parte contrária"},
+    {k:"area",l:"Área",list:"dlArea",span:2},{k:"polo",l:"Posição do cliente",span:2,ph:"Autor(a), réu, consulente"},{k:"parceria",l:"Parceria",list:"dlParc",span:2},
+    {k:"processo",l:"Nº do processo ou protocolo"},{k:"juizo",l:"Juízo ou órgão"},
+    {k:"fase",l:"Fase",t:"select",o:FASES.map(f=>f.k),span:2},{k:"prazo",l:"Próximo prazo",t:"date",span:2},{k:"telefone",l:"Telefone do cliente",t:"tel",span:2},
+    {k:"proximo",l:"Próximo passo",span:6},{k:"obs",l:"Observações",t:"area",span:6},
+    {k:"conferir",l:"Exige conferência",t:"check"},{k:"incompleto",l:"Dados a completar",t:"check"}],
+    extra,extraFoot:foot,
+    onSave:async o=>{if(!o.cliente){toast("Informe o nome do cliente.");return false}const ok=await salvar("casos",c&&c.id,o);if(ok)toast(c?"Processo atualizado":"Processo cadastrado");return ok},
+    onDelete:c?()=>excluir("casos",c.id):null,
+    depois:()=>{if(!c)return;$("xAud").onclick=()=>formAud(null,{parte:c.cliente,contraparte:c.contra,processo:c.processo,juizo:c.juizo});
+      $("xFin").onclick=()=>formLanc(null,{tipo:"receita",cliente:c.cliente,categoria:"Honorários iniciais",descricao:"Honorários — "+c.cliente+(c.contra?" x "+c.contra:"")});
+      $("xDoc").onclick=()=>{$("dlg").close();F.mod.casoId=c.id;F.mod.vals={};ir("modelos")}}
+  });
+}
+function formAud(a,pre){
+  a=a||null;const v=a||Object.assign({status:"ativa",tipo:"Conciliação",modalidade:"Virtual",advogado:"Tiana Ribeiro"},pre||{});
+  const ck=(a&&a.checklist)||{};
+  const extra=`<div class="checks"><div class="hd">Preparação da audiência</div>${CHECK_AUD.map(([k,l])=>`<label class="chk"><input type="checkbox" data-ck="${k}" ${ck[k]?"checked":""}> ${l}</label>`).join("")}</div>`;
+  modal({titulo:a?"Audiência":"Nova audiência",valores:v,campos:[
+    {k:"data",l:"Data",t:"date",span:2},{k:"hora",l:"Hora",t:"time",span:2},{k:"tipo",l:"Tipo",t:"select",o:["Conciliação","UNA","Instrução e julgamento","Outra"],span:2},
+    {k:"parte",l:"Cliente",list:"dlCli"},{k:"contraparte",l:"Parte contrária"},
+    {k:"processo",l:"Nº do processo"},{k:"juizo",l:"Juízo"},
+    {k:"modalidade",l:"Modalidade",t:"select",o:["Virtual","Presencial","Híbrida"],span:2},{k:"advogado",l:"Advogado(a)",span:2},{k:"status",l:"Situação",t:"select",o:["ativa","realizada","redesignada","cancelada"],span:2},
+    {k:"link",l:"Link da sala virtual ou endereço",span:6},{k:"obs",l:"Observações",t:"area",span:6},{k:"conferida",l:"Dados conferidos no sistema do tribunal",t:"check"}],
+    extra,extraFoot:`<button class="btn gold" type="button" id="xMsg">Mensagem ao cliente</button>`,
+    onSave:async o=>{if(!o.data){toast("Informe a data.");return false}o.checklist={};document.querySelectorAll("[data-ck]").forEach(x=>o.checklist[x.dataset.ck]=x.checked);const ok=await salvar("audiencias",a&&a.id,o);if(ok)toast(a?"Audiência atualizada":"Audiência cadastrada");return ok},
+    onDelete:a?()=>excluir("audiencias",a.id):null,
+    depois:()=>{$("xMsg").onclick=()=>{const o={};["data","hora","parte","contraparte","processo","link","tipo","modalidade","juizo"].forEach(k=>o[k]=$("m_"+k).value);msgAud(o,a)}}
+  });
+}
+function msgAud(a,orig){
+  const nome=(a.parte||"[NOME]").split(" e ")[0].split(" ")[0];
+  const d=a.data?dt(a.data):null;
+  const h=a.hora||"[HORA]";let h20="[HORA − 20 MIN]";
+  if(a.hora){const[hh,mm]=a.hora.split(":").map(Number);const t=hh*60+mm-20;h20=String(Math.floor(t/60)).padStart(2,"0")+"h"+String(t%60).padStart(2,"0")}
+  const virtual=a.modalidade!=="Presencial";
+  const una=a.tipo==="UNA";
+  const txt=`Bom dia, Sr(a). ${nome}! Tudo bem?
+
+Aqui é a Dra. Tiana Ribeiro, sua advogada no processo contra ${a.contraparte||"[PARTE CONTRÁRIA]"} (Processo nº ${a.processo||"[NÚMERO]"}).
+
+Sua audiência está marcada para:
+
+📅 ${d?SEM[d.getDay()].replace(/^./,c=>c.toUpperCase())+", "+fmtD(a.data):"[DIA DA SEMANA], [DD/MM/AAAA]"}
+⏰ ${a.hora?a.hora.replace(":","h"):h}
+${virtual?"💻 Por videochamada (telepresencial)\n🔗 Link da sala:\n"+(a.link||"[LINK]"):"📍 Presencial: "+(a.link||a.juizo||"[ENDEREÇO]")}
+
+${una?"É uma audiência UNA. Isso significa que, no mesmo ato, haverá a tentativa de acordo e, se não houver acordo, o juiz já colhe as provas e o seu depoimento.":"É uma audiência de conciliação, em que haverá tentativa de acordo com a parte contrária."}
+
+⚠️ Sua presença é obrigatória. Se o(a) senhor(a) não ${virtual?"entrar na sala":"comparecer"}, o processo é extinto e pode haver condenação ao pagamento de custas.
+
+Para que tudo corra bem, peço que:
+
+1. ${virtual?"Entre no link":"Chegue ao local"} às ${h20}, com 20 minutos de antecedência.
+${virtual?"2. Use celular ou computador com câmera e microfone funcionando, de preferência conectado ao Wi-Fi.\n3. Esteja em local silencioso e sozinho(a), sem estar dirigindo ou em trânsito.\n4. Tenha em mãos um documento oficial com foto.\n5. Mantenha a câmera ligada durante toda a audiência.":"2. Leve um documento oficial com foto.\n3. Leve os documentos originais que comprovam os fatos."}
+
+Se o(a) senhor(a) tiver testemunhas dos fatos (no máximo 3), me avise ainda hoje, com nome completo e telefone, para que eu oriente sobre a participação delas.
+
+Estarei ${virtual?"na sala":"no local"} com o(a) senhor(a).
+
+Por favor, me responda confirmando o recebimento desta mensagem. 🙏
+
+Atenciosamente,
+Dra. Tiana Ribeiro
+OAB/BA nº 61.074
+Tiana Ribeiro Advocacia e Consultoria`;
+  const back=()=>orig!==undefined?formAud(orig&&orig.id?S.audiencias.find(x=>x.id===orig.id)||orig:null,orig&&orig.id?null:a):null;
+  $("dlgForm").innerHTML=`<div class="dh"><h2>Mensagem ao cliente</h2><button class="x" value="cancel" aria-label="Fechar">×</button></div>
+  <div class="db"><p class="note" style="grid-column:span 6;margin:0">Modelo padrão do escritório, preenchido com os dados da audiência. Campos entre colchetes ainda precisam ser preenchidos.</p><div class="msgbox" id="msgTxt">${esc(txt)}</div></div>
+  <div class="df"><button class="btn" type="button" id="mVolta">Voltar</button><span class="spacer"></span><button class="btn primary" type="button" id="mCopy">Copiar mensagem</button></div>`;
+  $("mCopy").onclick=()=>copiar(txt);$("mVolta").onclick=back;
+  if(!$("dlg").open)$("dlg").showModal();
+}
+function formTarefa(t,pre){
+  t=t||null;
+  const casos=S.casos.filter(ativo).map(c=>c.cliente+(c.contra?" x "+c.contra:"")).sort((a,b)=>a.localeCompare(b,"pt-BR"));
+  modal({titulo:t?"Pendência":"Nova pendência",valores:t||Object.assign({tipo:"Prazo processual",prioridade:"Normal",responsavel:"Tiana"},pre||{}),campos:[
+    {k:"titulo",l:"O que precisa ser feito",span:6},
+    {k:"caso",l:"Processo / cliente",list:"dlCasos"},{k:"tipo",l:"Tipo",t:"select",o:TIPO_TAREFA},
+    {k:"prazo",l:"Prazo",t:"date",span:2},{k:"prioridade",l:"Prioridade",t:"select",o:["Normal","Alta","Baixa"],span:2},{k:"responsavel",l:"Responsável",span:2},
+    {k:"obs",l:"Observações",t:"area",span:6},{k:"feito",l:"Concluída",t:"check"}],
+    extra:`<datalist id="dlCasos">${casos.map(x=>`<option value="${esc(x)}">`).join("")}</datalist>`,
+    onSave:async o=>{if(!o.titulo){toast("Descreva a pendência.");return false}if(o.feito&&!(t&&t.feito))o.feitoEm=hojeISO();const ok=await salvar("tarefas",t&&t.id,o);if(ok)toast(t?"Pendência atualizada":"Pendência criada");return ok},
+    onDelete:t?()=>excluir("tarefas",t.id):null});
+}
+function formLanc(l,pre){
+  l=l||null;const v=l||Object.assign({tipo:"receita",categoria:"Honorários iniciais",vencimento:hojeISO(),forma:"PIX"},pre||{});
+  const extra=l?"":`<div class="f s6 chkf" style="border-top:1px solid var(--line);padding-top:10px"><label class="chk"><input type="checkbox" id="m_parc"> Dividir em parcelas mensais</label><input type="number" id="m_nparc" min="2" max="48" value="3" style="width:90px" aria-label="Número de parcelas"><span class="note">parcelas, a partir do vencimento informado</span></div>`;
+  modal({titulo:l?"Lançamento":"Novo lançamento",valores:v,campos:[
+    {k:"tipo",l:"Tipo",t:"select",o:["receita","despesa"],span:2},{k:"categoria",l:"Categoria",list:"dlCat",span:2},{k:"valor",l:"Valor (R$) — ex.: 4.706,60",t:"money",span:2},
+    {k:"descricao",l:"Descrição",span:6},
+    {k:"cliente",l:"Cliente / processo",list:"dlCli"},{k:"parceria",l:"Parceria (repasse)",list:"dlParc"},
+    {k:"vencimento",l:"Vencimento",t:"date",span:2},{k:"pagoEm",l:"Pago em",t:"date",span:2},{k:"forma",l:"Forma",t:"select",o:["PIX","Transferência","Boleto","Cartão","Dinheiro","Alvará judicial","Outro"],span:2},
+    {k:"obs",l:"Observações",t:"area",span:6}],
+    extra:extra+`<datalist id="dlCat">${[...CAT_REC,...CAT_DESP].map(x=>`<option value="${esc(x)}">`).join("")}</datalist>`,
+    onSave:async o=>{
+      if(!(o.valor>0)){toast("Informe um valor maior que zero.");return false}
+      const p=$("m_parc");
+      if(!l&&p&&p.checked){const n=Math.max(2,Math.min(48,parseInt($("m_nparc").value)||2));const base=Math.floor(o.valor/n*100)/100;let resto=Math.round((o.valor-base*n)*100)/100;
+        if(!db){toast("Abra o sistema pelo claude.ai para salvar.");return false}
+        try{for(let i=0;i<n;i++){const d=dt(o.vencimento||hojeISO());d.setMonth(d.getMonth()+i);await db.collection("lancamentos").add(Object.assign({},o,{valor:i===n-1?Math.round((base+resto)*100)/100:base,descricao:o.descricao+" ("+(i+1)+"/"+n+")",vencimento:iso(d),pagoEm:i===0?o.pagoEm:"",atualizado:hojeISO()}))}
+          toast(n+" parcelas lançadas");return true}catch(e){falha(e);return false}}
+      const ok=await salvar("lancamentos",l&&l.id,o);if(ok)toast(l?"Lançamento atualizado":"Lançamento registrado");return ok},
+    onDelete:l?()=>excluir("lancamentos",l.id):null});
+}
+function formConfig(){
+  const c=cfg();
+  modal({titulo:"Dados do escritório",valores:Object.assign({nome:"Tiana Ribeiro Advocacia e Consultoria",cidade:"Salvador/BA",adv1:"TIANA RIBEIRO COSTA, advogada, inscrita na OAB/BA sob o nº 61.074",adv2:"YCARO CARVALHO SILVA, advogado, inscrito na OAB/BA sob o nº 70.857"},c),campos:[
+    {k:"nome",l:"Nome do escritório",span:6},
+    {k:"endereco",l:"Endereço profissional completo",span:6,ph:"Rua, nº, sala, bairro, cidade/UF, CEP"},
+    {k:"email",l:"E-mail profissional",t:"email"},{k:"telefone",l:"Telefone / WhatsApp",t:"tel"},
+    {k:"cidade",l:"Cidade padrão de assinatura"},{k:"pix",l:"Chave PIX para honorários"},
+    {k:"adv1",l:"Advogada principal (como aparece nas procurações)",span:6},
+    {k:"adv2",l:"Segundo advogado (opcional)",span:6}],
+    onSave:async o=>{if(!db){toast("Abra o sistema pelo claude.ai para salvar.");return false}
+      try{await db.collection("config").doc("escritorio").set(Object.assign(o,{atualizado:hojeISO()}));toast("Dados do escritório salvos");return true}catch(e){falha(e);return false}}});
+}
+$("btnConfig").onclick=formConfig;
+
+/* ============================== AUDIÊNCIAS ============================== */
+function linhaAud(a,compact){
+  const n=dias(a.data);const past=n<0;const ck=a.checklist||{};const feitos=CHECK_AUD.filter(([k])=>ck[k]).length;
+  const st=a.status==="realizada"?'<span class="pill ok">Realizada</span>':a.status==="cancelada"?'<span class="pill">Cancelada</span>':a.status==="redesignada"?'<span class="pill">Redesignada</span>':past?'<span class="pill bad">Dar baixa</span>':n<=2?`<span class="pill warn">${relDia(a.data)}</span>`:`<span class="pill acc">${relDia(a.data)}</span>`;
+  return `<div class="r ${past?"past":""}" role="button" tabindex="0" data-aid="${esc(a.id)}">
+    <div class="when"><b>${esc(a.hora||"--:--")}</b>${compact?`<span>${fmtDc(a.data)}</span>`:""}</div>
+    <div style="min-width:0"><div class="t1">${esc(a.parte||"(cliente)")}${a.contraparte?` <span style="font-weight:400;color:var(--muted)">x ${esc(a.contraparte)}</span>`:""}</div>
+      <div class="t2">${esc([a.tipo,a.juizo].filter(Boolean).join(" · "))}</div>${compact?"":`<div class="t2 mono" style="font-size:12px">${esc(a.processo||"")}</div>`}</div>
+    <div class="meta">${st}${a.status==="ativa"&&!past?`<span class="pill ${feitos===CHECK_AUD.length?"ok":""}">Preparo ${feitos}/${CHECK_AUD.length}</span>`:""}${!a.conferida&&a.status==="ativa"?'<span class="pill warn">Conferir</span>':""}</div></div>`;
+}
+function bindAudRows(){document.querySelectorAll("[data-aid]").forEach(el=>{const go=()=>{const a=S.audiencias.find(x=>x.id===el.dataset.aid);a&&formAud(a)};el.addEventListener("click",go);el.addEventListener("keydown",e=>{if(e.key==="Enter")go()})})}
+function vAudiencias(){
+  const f=F.aud,q=norm(f.q);
+  let l=S.audiencias.filter(a=>!q||norm([a.parte,a.contraparte,a.processo,a.juizo].join(" ")).includes(q));
+  if(f.st==="proximas")l=l.filter(a=>a.status==="ativa"&&dias(a.data)>=0);
+  else if(f.st==="baixa")l=l.filter(a=>a.status==="ativa"&&dias(a.data)<0);
+  else if(f.st==="realizadas")l=l.filter(a=>a.status==="realizada");
+  l.sort((a,b)=>{const x=(a.data||"")+(a.hora||""),y=(b.data||"")+(b.hora||"");return f.st==="realizadas"?(x<y?1:-1):(x<y?-1:1)});
+  const grupos={};l.forEach(a=>(grupos[a.data||"sem data"]=grupos[a.data||"sem data"]||[]).push(a));
+  const nBaixa=S.audiencias.filter(a=>a.status==="ativa"&&dias(a.data)<0).length;
+  posRender.audiencias=()=>{bindAudRows();const s=$("aq");s.addEventListener("input",()=>{f.q=s.value;render();const n=$("aq");n.focus();n.setSelectionRange(n.value.length,n.value.length)});$("ast").onchange=e=>{f.st=e.target.value;render()}};
+  return `<div class="view-h"><div><h1>Audiências</h1><p>${S.audiencias.filter(a=>a.status==="ativa"&&dias(a.data)>=0).length} marcadas daqui em diante${nBaixa?` · <span style="color:var(--bad);font-weight:600">${nBaixa} aguardando baixa</span>`:""}</p></div>
+  <div class="acts"><button class="btn primary" type="button" onclick="formAud()">+ Audiência</button></div></div>
+  ${aviso()}
+  <div class="tools"><input type="search" id="aq" value="${esc(f.q)}" placeholder="Buscar cliente, parte contrária, processo ou juízo" aria-label="Buscar audiências">
+  <select id="ast" aria-label="Situação"><option value="proximas" ${f.st==="proximas"?"selected":""}>Próximas</option><option value="baixa" ${f.st==="baixa"?"selected":""}>Passadas sem baixa</option><option value="realizadas" ${f.st==="realizadas"?"selected":""}>Realizadas</option><option value="todas" ${f.st==="todas"?"selected":""}>Todas</option></select></div>
+  <section class="panel aud" style="padding:14px 16px">${Object.keys(grupos).length?Object.entries(grupos).map(([d,as])=>`<div class="day"><div class="day-h"><h3>${d==="sem data"?"Sem data":(SEM[dt(d).getDay()].replace(/^./,c=>c.toUpperCase())+", "+fmtD(d))}</h3><span>${d==="sem data"?"":relDia(d)} · ${as.length} audiência${as.length>1?"s":""}</span></div><div class="rows">${as.map(a=>linhaAud(a,false)).join("")}</div></div>`).join("")
+  :`<div class="empty"><b>Nenhuma audiência nesta visão</b>Cadastre com “+ Audiência” ou a partir de um processo.</div>`}</section>`;
+}
+
+/* ============================== PENDÊNCIAS ============================== */
+function vPendencias(){
+  const f=F.pend,q=norm(f.q);
+  let l=pendencias().filter(p=>(!f.src||p.src===f.src)&&(!q||norm(p.titulo+" "+p.sub).includes(q)));
+  if(f.st==="abertas")l=l.filter(p=>!p.feito);else if(f.st==="feitas")l=l.filter(p=>p.feito);
+  l.sort(ordPend);
+  const grp=[["Vencidas",p=>!p.feito&&p.prazo&&dias(p.prazo)<0],["Hoje",p=>!p.feito&&p.prazo&&dias(p.prazo)===0],["Próximos 7 dias",p=>!p.feito&&p.prazo&&dias(p.prazo)>0&&dias(p.prazo)<=7],["Mais adiante",p=>!p.feito&&p.prazo&&dias(p.prazo)>7],["Sem prazo",p=>!p.feito&&!p.prazo],["Concluídas",p=>p.feito]];
+  posRender.pendencias=()=>{bindPend(l);const s=$("tq");s.addEventListener("input",()=>{f.q=s.value;render();const n=$("tq");n.focus();n.setSelectionRange(n.value.length,n.value.length)});$("tst").onchange=e=>{f.st=e.target.value;render()};$("tsrc").onchange=e=>{f.src=e.target.value;render()}};
+  return `<div class="view-h"><div><h1>Pendências</h1><p>Tarefas avulsas e o que vem dos processos, audiências e financeiro, num lugar só.</p></div>
+  <div class="acts"><button class="btn primary" type="button" onclick="formTarefa()">+ Pendência</button></div></div>
+  ${aviso()}
+  <div class="tools"><input type="search" id="tq" value="${esc(f.q)}" placeholder="Buscar pendência ou cliente" aria-label="Buscar pendências">
+  <select id="tsrc" aria-label="Origem"><option value="">Todas as origens</option>${["Tarefa","Processo","Audiência","Cadastro","Financeiro"].map(s=>`<option ${f.src===s?"selected":""}>${s}</option>`).join("")}</select>
+  <select id="tst" aria-label="Situação"><option value="abertas" ${f.st==="abertas"?"selected":""}>Abertas</option><option value="feitas" ${f.st==="feitas"?"selected":""}>Concluídas</option><option value="todas" ${f.st==="todas"?"selected":""}>Todas</option></select></div>
+  <div class="stack">${grp.map(([t,fn])=>{const it=l.filter(fn);return it.length?`<section class="panel"><div class="ph"><h2 style="${t==="Vencidas"?"color:var(--bad)":""}">${t}</h2><span>${it.length}</span></div><div class="rows pend">${it.map(linhaPend).join("")}</div></section>`:""}).join("")||`<section class="panel"><div class="empty"><b>Nenhuma pendência aqui</b>Crie uma com “+ Pendência”. Prazos dos processos e preparo de audiências aparecem sozinhos.</div></section>`}</div>`;
+}
+
+/* ============================== FINANCEIRO ============================== */
+function vFinanceiro(){
+  const f=F.fin,m=f.mes,q=norm(f.q);
+  const L=S.lancamentos;
+  const doMes=l=>((l.pagoEm||l.vencimento||"").slice(0,7)===m);
+  const rec=L.filter(l=>l.tipo==="receita"&&l.pagoEm&&l.pagoEm.slice(0,7)===m).reduce((s,l)=>s+(+l.valor||0),0);
+  const desp=L.filter(l=>l.tipo==="despesa"&&doMes(l)).reduce((s,l)=>s+(+l.valor||0),0);
+  const aberto=L.filter(l=>l.tipo==="receita"&&!l.pagoEm);
+  const aRec=aberto.reduce((s,l)=>s+(+l.valor||0),0);
+  const vencidos=aberto.filter(l=>l.vencimento&&dias(l.vencimento)<0);
+  const vVenc=vencidos.reduce((s,l)=>s+(+l.valor||0),0);
+  let lista=L.filter(l=>doMes(l)||(f.st==="aberto"&&l.tipo==="receita"&&!l.pagoEm)||(f.st==="atraso"&&l.tipo==="receita"&&!l.pagoEm&&dias(l.vencimento)<0));
+  if(f.st==="aberto")lista=aberto;if(f.st==="atraso")lista=vencidos;
+  lista=lista.filter(l=>(!f.tipo||l.tipo===f.tipo)&&(!q||norm([l.descricao,l.cliente,l.categoria,l.parceria].join(" ")).includes(q))).sort((a,b)=>((a.pagoEm||a.vencimento)>(b.pagoEm||b.vencimento)?1:-1));
+  // gráfico 6 meses
+  const meses=[];const base=new Date(+m.slice(0,4),+m.slice(5)-1,1);for(let i=5;i>=0;i--){const d=new Date(base.getFullYear(),base.getMonth()-i,1);meses.push(iso(d).slice(0,7))}
+  const serie=meses.map(mm=>({mm,r:L.filter(l=>l.tipo==="receita"&&(l.pagoEm||"").slice(0,7)===mm).reduce((s,l)=>s+(+l.valor||0),0),d:L.filter(l=>l.tipo==="despesa"&&((l.pagoEm||l.vencimento||"").slice(0,7)===mm)).reduce((s,l)=>s+(+l.valor||0),0)}));
+  const repasses={};L.filter(l=>l.tipo==="receita"&&l.pagoEm&&l.pagoEm.slice(0,7)===m&&l.parceria).forEach(l=>repasses[l.parceria]=(repasses[l.parceria]||0)+(+l.valor||0));
+  posRender.financeiro=()=>{
+    $("fm").onchange=e=>{f.mes=e.target.value||mesAtual();render()};$("ft").onchange=e=>{f.tipo=e.target.value;render()};$("fs").onchange=e=>{f.st=e.target.value;render()};
+    const s=$("fq");s.addEventListener("input",()=>{f.q=s.value;render();const n=$("fq");n.focus();n.setSelectionRange(n.value.length,n.value.length)});
+    document.querySelectorAll("[data-lid]").forEach(el=>{const go=e=>{if(e.target.closest("[data-pagar]"))return;const l=L.find(x=>x.id===el.dataset.lid);l&&formLanc(l)};el.addEventListener("click",go);el.addEventListener("keydown",e=>{if(e.key==="Enter")go(e)})});
+    document.querySelectorAll("[data-pagar]").forEach(b=>b.addEventListener("click",async e=>{e.stopPropagation();if(await salvar("lancamentos",b.dataset.pagar,{pagoEm:hojeISO()}))toast("Marcado como recebido hoje")}));
+  };
+  const nomeMes=MES[+m.slice(5)-1]+" de "+m.slice(0,4);
+  return `<div class="view-h"><div><h1>Financeiro</h1><p>Honorários, recebimentos e despesas de ${nomeMes}</p></div>
+  <div class="acts"><button class="btn" type="button" onclick="formLanc(null,{tipo:'despesa',categoria:'Custas e preparo'})">+ Despesa</button><button class="btn primary" type="button" onclick="formLanc()">+ Receita</button></div></div>
+  ${aviso()}
+  <section class="kpis">
+    <div class="kpi" style="cursor:default"><small>Recebido no mês</small><b class="money" style="color:var(--ok)">${brl(rec)}</b><span>${L.filter(l=>l.tipo==="receita"&&(l.pagoEm||"").slice(0,7)===m).length} recebimentos</span></div>
+    <div class="kpi" style="cursor:default"><small>Despesas do mês</small><b class="money" style="color:var(--bad)">${brl(desp)}</b><span>Resultado ${brl(rec-desp)}</span></div>
+    <button class="kpi" type="button" onclick="F.fin.st='aberto';render()"><small>A receber</small><b class="money">${brl(aRec)}</b><span>${aberto.length} em aberto</span></button>
+    <button class="kpi" type="button" onclick="F.fin.st='atraso';render()"><small>Em atraso</small><b class="money" style="${vVenc?"color:var(--bad)":""}">${brl(vVenc)}</b><span class="${vencidos.length?"bad":""}">${vencidos.length?vencidos.length+" cobranças vencidas":"Nada em atraso"}</span></button>
+  </section>
+  <div class="grid2" style="margin-bottom:16px">
+    <section class="panel"><div class="ph"><h2>Últimos 6 meses</h2><span>recebido x despesas</span></div>${grafico(serie)}</section>
+    <section class="panel"><div class="ph"><h2>Recebido por parceria</h2><span>${nomeMes}</span></div>
+      <div class="rows">${Object.keys(repasses).length?Object.entries(repasses).sort((a,b)=>b[1]-a[1]).map(([p,v])=>`<div class="r" style="grid-template-columns:1fr auto;cursor:default"><span class="t1">${esc(p)}</span><span class="val">${brl(v)}</span></div>`).join(""):`<div class="empty" style="border-top:1px solid var(--line)">Informe a parceria nos recebimentos para ver a divisão aqui e calcular os repasses.</div>`}</div></section>
+  </div>
+  <div class="tools"><input type="month" id="fm" value="${m}" aria-label="Mês" style="width:auto;background:var(--panel);border:1px solid var(--line);border-radius:7px;padding:7px 10px">
+    <select id="fs" aria-label="Visão"><option value="" ${!f.st?"selected":""}>Lançamentos do mês</option><option value="aberto" ${f.st==="aberto"?"selected":""}>Tudo a receber</option><option value="atraso" ${f.st==="atraso"?"selected":""}>Em atraso</option></select>
+    <select id="ft" aria-label="Tipo"><option value="">Receitas e despesas</option><option value="receita" ${f.tipo==="receita"?"selected":""}>Só receitas</option><option value="despesa" ${f.tipo==="despesa"?"selected":""}>Só despesas</option></select>
+    <input type="search" id="fq" value="${esc(f.q)}" placeholder="Buscar cliente ou descrição" aria-label="Buscar lançamentos"></div>
+  <section class="panel fin"><div class="thead"><span>Data</span><span>Descrição</span><span>Categoria</span><span style="text-align:right">Valor</span><span>Situação</span></div>
+  <div class="rows">${lista.length?lista.map(l=>{const pago=!!l.pagoEm;const venc=!pago&&l.vencimento&&dias(l.vencimento)<0;
+    return `<div class="r" role="button" tabindex="0" data-lid="${esc(l.id)}">
+      <div class="prazo"><span class="ml">Data</span>${fmtD(l.pagoEm||l.vencimento)}</div>
+      <div class="c-desc" style="min-width:0"><div class="t1">${esc(l.descricao||l.categoria)}</div><div class="t2">${esc([l.cliente,l.parceria&&"Parceria: "+l.parceria].filter(Boolean).join(" · "))}</div></div>
+      <div class="t2"><span class="ml">Categoria</span>${esc(l.categoria||"")}</div>
+      <div class="val ${l.tipo==="receita"?"in":"out"}">${l.tipo==="despesa"?"− ":""}${brl(l.valor)}</div>
+      <div>${pago?`<span class="pill ok">${l.tipo==="receita"?"Recebido":"Pago"}</span>`:venc?`<span class="pill bad">Vencido</span>`:`<span class="pill">Em aberto</span>`}${!pago&&l.tipo==="receita"?`<div style="margin-top:5px"><button class="btn sm" type="button" data-pagar="${esc(l.id)}">Recebi</button></div>`:""}</div></div>`}).join("")
+  :`<div class="empty"><b>Nenhum lançamento nesta visão</b>Registre honorários com “+ Receita”. Parcelamentos geram uma linha por mês.</div>`}</div></section>`;
+}
+function grafico(serie){
+  const W=520,H=200,pl=8,pb=26,pt=14;const mx=Math.max(1,...serie.map(s=>Math.max(s.r,s.d)));
+  const step=(W-pl*2)/serie.length,bw=Math.min(26,step/3);
+  const y=v=>H-pb-(v/mx)*(H-pb-pt);
+  const lines=[0.5,1].map(f=>`<line x1="${pl}" x2="${W-pl}" y1="${y(mx*f)}" y2="${y(mx*f)}" stroke="var(--line)" stroke-dasharray="3 4"/><text x="${W-pl}" y="${y(mx*f)-4}" text-anchor="end" font-size="10.5" fill="var(--muted)" font-family="IBM Plex Mono, monospace">${brl(mx*f).replace(",00","")}</text>`).join("");
+  const bars=serie.map((s,i)=>{const cx=pl+step*i+step/2;return `<rect x="${cx-bw-1.5}" y="${y(s.r)}" width="${bw}" height="${Math.max(0,H-pb-y(s.r))}" rx="2" fill="var(--ok)"><title>Recebido ${brl(s.r)}</title></rect><rect x="${cx+1.5}" y="${y(s.d)}" width="${bw}" height="${Math.max(0,H-pb-y(s.d))}" rx="2" fill="var(--bad)" opacity=".75"><title>Despesas ${brl(s.d)}</title></rect><text x="${cx}" y="${H-8}" text-anchor="middle" font-size="11.5" fill="var(--muted)">${MESC[+s.mm.slice(5)-1]}</text>`}).join("");
+  return `<div class="chart"><svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Recebido e despesas por mês"><line x1="${pl}" x2="${W-pl}" y1="${H-pb}" y2="${H-pb}" stroke="var(--line)"/>${lines}${bars}</svg><div class="lg"><span><i style="background:var(--ok)"></i>Recebido</span><span><i style="background:var(--bad);opacity:.75"></i>Despesas</span></div></div>`;
+}
+
+/* ============================== MODELOS ============================== */
+const CAMPOS={
+ cliente_nome:"Nome completo do cliente",cliente_nacionalidade:"Nacionalidade",cliente_estado_civil:"Estado civil",cliente_profissao:"Profissão",cliente_rg:"RG e órgão expedidor",cliente_cpf:"CPF",cliente_endereco:"Endereço completo com CEP",cliente_email:"E-mail do cliente",cliente_telefone:"Telefone do cliente",
+ reu_nome:"Parte contrária (razão social)",reu_cnpj:"CNPJ da parte contrária",reu_endereco:"Endereço da parte contrária",
+ comarca:"Comarca",processo:"Nº do processo",finalidade:"Finalidade / objeto da ação",
+ honor_fixo:"Honorários fixos (R$)",honor_forma:"Forma de pagamento dos fixos",honor_exito:"Honorários de êxito (%)",foro:"Foro do contrato",
+ substabelecido:"Advogado(a) substabelecido(a) (nome e OAB)",valor_recibo:"Valor recebido (R$)",ref_recibo:"Referente a",
+ valor_causa:"Valor da causa (R$)",valor_moral:"Danos morais pedidos (R$)",valor_material:"Danos materiais (R$)",
+ cidade_assinatura:"Cidade da assinatura",data_assinatura:"Data da assinatura"
+};
+const QUALIF="{{cliente_nome}}, {{cliente_nacionalidade}}, {{cliente_estado_civil}}, {{cliente_profissao}}, portador(a) do RG nº {{cliente_rg}}, inscrito(a) no CPF sob o nº {{cliente_cpf}}, residente e domiciliado(a) em {{cliente_endereco}}, e-mail {{cliente_email}}, telefone {{cliente_telefone}}";
+const REU="{{reu_nome}}, pessoa jurídica de direito privado, inscrita no CNPJ sob o nº {{reu_cnpj}}, com endereço em {{reu_endereco}}";
+const CAB_JEC="EXCELENTÍSSIMO(A) SENHOR(A) JUIZ(A) DE DIREITO DA ___ VARA DO SISTEMA DOS JUIZADOS ESPECIAIS DO CONSUMIDOR DA COMARCA DE {{comarca}}\n\n\n";
+const ABERT=(acao)=>`${QUALIF}, por seus advogados que esta subscrevem (procuração anexa), com endereço profissional em {{esc_endereco}}, onde recebem intimações, vem, respeitosamente, à presença de Vossa Excelência, com fundamento na Lei nº 9.099/1995 e no Código de Defesa do Consumidor, propor a presente\n\n#T ${acao}\n\nem face de ${REU}, pelos fatos e fundamentos a seguir expostos.\n\n`;
+const PRELIM=`#S I. DA GRATUIDADE DA JUSTIÇA\n\nEmbora o acesso ao Juizado Especial, em primeiro grau, independa do pagamento de custas (art. 54 da Lei nº 9.099/1995), requer-se desde já a concessão da gratuidade da justiça, para fins de eventual recurso, por não ter a parte autora condições de arcar com custas e honorários sem prejuízo do próprio sustento, conforme declaração anexa (art. 99, §3º, do CPC).\n\n#S II. DA OPÇÃO PELA AUDIÊNCIA DE CONCILIAÇÃO\n\nA parte autora manifesta interesse na realização de audiência de conciliação, em formato telepresencial, nos termos do art. 22, §2º, da Lei nº 9.099/1995.\n\n`;
+const DANO_MORAL=`#S DO DANO MORAL E DO DESVIO PRODUTIVO\n\nA conduta da Ré ultrapassou o mero aborrecimento. A parte autora foi obrigada a [descrever as tentativas de solução: protocolos, ligações, deslocamentos, horas perdidas], desperdiçando tempo útil que poderia dedicar ao trabalho, ao descanso e à família, o que caracteriza o desvio produtivo do consumidor, reconhecido pela jurisprudência como dano indenizável.\n\nNa fixação do valor, deve ser observado o método bifásico: (i) na primeira fase, o valor básico fixado em casos semelhantes pela Turma Recursal do TJBA [inserir precedentes]; (ii) na segunda fase, as circunstâncias do caso concreto — [listar agravantes: reiteração, descaso, vulnerabilidade da parte autora, capacidade econômica da Ré] —, a justificar a majoração para R$ {{valor_moral}}.\n\n`;
+const FECHO=`#S DAS PROVAS\n\nRequer a produção de todas as provas admitidas em direito, especialmente documental, depoimento pessoal do preposto da Ré e testemunhal, com a inversão do ônus da prova (art. 6º, VIII, do CDC).\n\n#S DO VALOR DA CAUSA\n\nDá-se à causa o valor de R$ {{valor_causa}}, dentro do limite de 40 salários mínimos (art. 3º, I, da Lei nº 9.099/1995).\n\nTermos em que pede deferimento.\n\n{{cidade_assinatura}}, {{data_assinatura}}.\n\n\n{{assinaturas}}`;
+const MODELOS=[
+ {id:"proc-adjudicia",g:"Procurações e declarações",n:"Procuração ad judicia et extra",f:"procuracao",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","finalidade","cidade_assinatura","data_assinatura"],
+  txt:`#T PROCURAÇÃO AD JUDICIA ET EXTRA\n\n#S OUTORGANTE:\n${QUALIF}.\n\n#S OUTORGADOS:\n{{advogados}}, integrantes de {{esc_nome}}, com endereço profissional em {{esc_endereco}}, e-mail {{esc_email}}.\n\n#S PODERES:\nPelo presente instrumento particular de mandato, o(a) OUTORGANTE nomeia e constitui seus bastantes procuradores os OUTORGADOS, aos quais confere os poderes da cláusula ad judicia et extra, para o foro em geral, em qualquer juízo, instância ou tribunal, podendo propor contra quem de direito as ações competentes e defendê-lo(a) nas contrárias, seguindo umas e outras até decisão final, usando de todos os recursos legais e acompanhando-os, conferindo-lhes, ainda, os poderes especiais previstos no art. 105 do Código de Processo Civil para receber citação, confessar, reconhecer a procedência do pedido, transigir, desistir, renunciar ao direito sobre o qual se funda a ação, receber, dar quitação, firmar compromisso e assinar declaração de hipossuficiência econômica, bem como para levantar alvarás, requerer certidões, representá-lo(a) perante órgãos públicos, PROCON, Banco Central do Brasil, plataforma consumidor.gov.br, concessionárias de serviço público e quaisquer pessoas jurídicas de direito público ou privado, podendo substabelecer esta a outrem, com ou sem reserva de iguais poderes, dando tudo por bom, firme e valioso, especialmente para {{finalidade}}.\n\n{{cidade_assinatura}}, {{data_assinatura}}.\n\n\n_______________________________________\n{{cliente_nome}}\nCPF {{cliente_cpf}}`},
+ {id:"decl-hipo",g:"Procurações e declarações",n:"Declaração de hipossuficiência",f:"declaracao-hipossuficiencia",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","cidade_assinatura","data_assinatura"],
+  txt:`#T DECLARAÇÃO DE HIPOSSUFICIÊNCIA ECONÔMICA\n\n${QUALIF}, DECLARA, para os fins do art. 98 e seguintes do Código de Processo Civil e sob as penas da lei, que não possui condições de arcar com as custas processuais e os honorários advocatícios sem prejuízo do sustento próprio e de sua família, razão pela qual faz jus à gratuidade da justiça.\n\nDeclara, ainda, estar ciente de que a falsidade desta declaração sujeita o declarante às sanções civis, administrativas e penais cabíveis.\n\n{{cidade_assinatura}}, {{data_assinatura}}.\n\n\n_______________________________________\n{{cliente_nome}}\nCPF {{cliente_cpf}}`},
+ {id:"substab",g:"Procurações e declarações",n:"Substabelecimento com reserva",f:"substabelecimento",campos:["cliente_nome","reu_nome","processo","substabelecido","cidade_assinatura","data_assinatura"],
+  txt:`#T SUBSTABELECIMENTO COM RESERVA DE PODERES\n\nPelo presente instrumento, {{advogados}}, SUBSTABELECEM, COM RESERVA DE IGUAIS PODERES, a {{substabelecido}}, os poderes que lhes foram conferidos por {{cliente_nome}}, nos autos do processo nº {{processo}}, movido em face de {{reu_nome}}, para que, em conjunto ou separadamente, pratique todos os atos necessários ao bom andamento do feito.\n\n{{cidade_assinatura}}, {{data_assinatura}}.\n\n\n{{assinaturas}}`},
+ {id:"contrato",g:"Contratos e recibos",n:"Contrato de honorários (fixo + êxito)",f:"contrato-honorarios",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","reu_nome","finalidade","honor_fixo","honor_forma","honor_exito","foro","cidade_assinatura","data_assinatura"],
+  txt:`#T CONTRATO DE PRESTAÇÃO DE SERVIÇOS ADVOCATÍCIOS E HONORÁRIOS\n\n#S CONTRATANTE:\n${QUALIF}.\n\n#S CONTRATADOS:\n{{advogados}}, integrantes de {{esc_nome}}, com endereço profissional em {{esc_endereco}}, e-mail {{esc_email}}.\n\nAs partes acima identificadas celebram o presente contrato, que se regerá pelas cláusulas seguintes e pela Lei nº 8.906/1994 (Estatuto da Advocacia e da OAB).\n\n#S CLÁUSULA 1ª – DO OBJETO\nOs CONTRATADOS prestarão ao CONTRATANTE serviços de assessoria e patrocínio jurídico para {{finalidade}}, em face de {{reu_nome}}, abrangendo a atuação extrajudicial, a propositura e o acompanhamento da ação em primeiro grau, a interposição ou resposta a recursos perante a Turma Recursal ou o Tribunal competente e o cumprimento de sentença.\n\nParágrafo único. Demandas diversas da descrita nesta cláusula, inclusive ações autônomas, recursos aos Tribunais Superiores e defesas em processos conexos, serão objeto de contratação à parte.\n\n#S CLÁUSULA 2ª – DOS HONORÁRIOS\nPelos serviços contratados, o CONTRATANTE pagará aos CONTRATADOS:\na) honorários iniciais fixos de R$ {{honor_fixo}}, pagos {{honor_forma}}, mediante PIX para a chave {{esc_pix}};\nb) honorários de êxito correspondentes a {{honor_exito}}% (por cento) do proveito econômico total obtido pelo CONTRATANTE, seja por sentença, acordo judicial ou extrajudicial, incidentes sobre o valor bruto efetivamente recebido, devidos no ato do recebimento.\n\nParágrafo primeiro. Os honorários de sucumbência pertencem exclusivamente aos CONTRATADOS, nos termos dos arts. 22 e 23 da Lei nº 8.906/1994, e não se compensam com os honorários ora pactuados.\n\nParágrafo segundo. Havendo levantamento de valores por alvará ou transferência à conta dos CONTRATADOS, fica desde já autorizada a retenção dos honorários de êxito, com repasse do saldo ao CONTRATANTE em até 5 (cinco) dias úteis, acompanhado de prestação de contas.\n\n#S CLÁUSULA 3ª – DAS DESPESAS\nCustas, preparo recursal, perícias, certidões, diligências, cópias e deslocamentos necessários à causa são de responsabilidade do CONTRATANTE e não estão incluídos nos honorários, devendo ser reembolsados mediante comprovação.\n\n#S CLÁUSULA 4ª – DAS OBRIGAÇÕES DO CONTRATANTE\nO CONTRATANTE obriga-se a: (i) fornecer, com veracidade e no prazo solicitado, todos os documentos e informações necessários; (ii) comparecer pessoalmente às audiências, ciente de que, no Juizado Especial, a ausência do autor acarreta a extinção do processo e pode gerar condenação em custas (art. 51, I e §2º, da Lei nº 9.099/1995); (iii) manter seus dados de contato atualizados; (iv) não celebrar acordo diretamente com a parte contrária sem a ciência dos CONTRATADOS.\n\n#S CLÁUSULA 5ª – DO ACORDO SEM PARTICIPAÇÃO DOS CONTRATADOS\nCaso o CONTRATANTE realize acordo diretamente com a parte contrária, sem a intervenção dos CONTRATADOS, os honorários de êxito serão devidos integralmente sobre o valor acordado.\n\n#S CLÁUSULA 6ª – DA NATUREZA DA OBRIGAÇÃO\nA obrigação assumida pelos CONTRATADOS é de meio, e não de resultado, comprometendo-se a empregar todo o zelo e a técnica profissional na defesa dos interesses do CONTRATANTE.\n\n#S CLÁUSULA 7ª – DA REVOGAÇÃO E DA RENÚNCIA\nA revogação do mandato pelo CONTRATANTE não o desobriga do pagamento dos honorários fixos integrais e dos honorários de êxito proporcionais ao trabalho realizado, caso o resultado venha a ser obtido. A renúncia pelos CONTRATADOS observará o dever de comunicação e o prazo legal de representação.\n\n#S CLÁUSULA 8ª – DO INADIMPLEMENTO\nO atraso no pagamento de qualquer parcela acarretará multa de 2% (dois por cento), juros de mora de 1% (um por cento) ao mês e correção monetária pelo IPCA, sem prejuízo da cobrança judicial.\n\n#S CLÁUSULA 9ª – DO TÍTULO EXECUTIVO\nEste contrato constitui título executivo extrajudicial, nos termos do art. 24 da Lei nº 8.906/1994 e do art. 784, XII, do Código de Processo Civil.\n\n#S CLÁUSULA 10ª – DA PROTEÇÃO DE DADOS\nOs dados pessoais do CONTRATANTE serão tratados exclusivamente para a execução deste contrato e para o exercício regular de direitos em processo judicial ou administrativo (art. 7º, V e VI, da Lei nº 13.709/2018), mantido o sigilo profissional.\n\n#S CLÁUSULA 11ª – DAS COMUNICAÇÕES\nAs partes reconhecem como válidas as comunicações realizadas por e-mail e WhatsApp, nos contatos informados neste instrumento.\n\n#S CLÁUSULA 12ª – DO FORO\nFica eleito o foro da Comarca de {{foro}} para dirimir quaisquer controvérsias oriundas deste contrato.\n\nE, por estarem justas e contratadas, as partes assinam o presente instrumento em 2 (duas) vias de igual teor, na presença de duas testemunhas.\n\n{{cidade_assinatura}}, {{data_assinatura}}.\n\n\n_______________________________________\n{{cliente_nome}} – CONTRATANTE\n\n\n{{assinaturas}}\n\n\nTESTEMUNHAS:\n\n1. _______________________________ CPF: ________________\n\n2. _______________________________ CPF: ________________`},
+ {id:"recibo",g:"Contratos e recibos",n:"Recibo de honorários",f:"recibo-honorarios",campos:["cliente_nome","cliente_cpf","valor_recibo","ref_recibo","cidade_assinatura","data_assinatura"],
+  txt:`#T RECIBO DE HONORÁRIOS ADVOCATÍCIOS\n\nRecebemos de {{cliente_nome}}, inscrito(a) no CPF sob o nº {{cliente_cpf}}, a importância de R$ {{valor_recibo}}, referente a {{ref_recibo}}, pelo que damos plena e geral quitação quanto ao valor ora recebido.\n\n{{cidade_assinatura}}, {{data_assinatura}}.\n\n\n{{assinaturas}}`},
+ {id:"ini-voo",g:"Petições iniciais",n:"Atraso ou cancelamento de voo",f:"inicial-voo",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","reu_nome","reu_cnpj","reu_endereco","comarca","valor_moral","valor_material","valor_causa","cidade_assinatura","data_assinatura"],
+  txt:CAB_JEC+ABERT("AÇÃO DE INDENIZAÇÃO POR DANOS MATERIAIS E MORAIS")+PRELIM+`#S III. DOS FATOS\n\nA parte autora adquiriu passagem aérea da Ré, reserva nº [LOCALIZADOR], para o voo [Nº DO VOO], trecho [ORIGEM → DESTINO], com partida prevista para [DATA], às [HORA], e chegada às [HORA].\n\n[Narrar em ordem cronológica: quando e como soube do atraso/cancelamento; se houve aviso com 72h de antecedência; o tempo efetivo de atraso na chegada ao destino final; a assistência material oferecida ou negada (comunicação, alimentação, hospedagem, transporte); a reacomodação; os gastos extras; e a consequência concreta para a parte autora — compromisso, trabalho, evento, prova, conexão perdida.]\n\n#S IV. QUADRO-RESUMO\n\nVoo contratado: [nº, data e horário] | Voo efetivo: [nº, data e horário] | Atraso na chegada: [__ horas] | Assistência material: [não prestada / parcial] | Prejuízo concreto: [descrever] | Gastos comprovados: R$ {{valor_material}}\n\n#S V. DO DIREITO\n\n1. Da relação de consumo e da responsabilidade objetiva. A Ré é fornecedora de serviço de transporte aéreo e responde, independentemente de culpa, pelos danos causados por falha na prestação do serviço (arts. 2º, 3º e 14 do CDC). Problemas técnicos, operacionais e de malha aérea constituem fortuito interno, inerente ao risco da atividade, e não afastam o dever de indenizar.\n\n2. Das obrigações regulatórias descumpridas. A Resolução ANAC nº 400/2016 impõe à transportadora informar alterações programadas com antecedência mínima de 72 horas (art. 12), oferecer reacomodação, reembolso ou execução por outra modalidade em atrasos superiores a 4 horas e cancelamentos (art. 21) e prestar assistência material gradativa — comunicação a partir de 1 hora, alimentação a partir de 2 horas e hospedagem a partir de 4 horas (arts. 26 e 27). [Indicar quais obrigações foram descumpridas.]\n\n3. Da demonstração do dano extrapatrimonial. Nos termos do art. 251-A do Código Brasileiro de Aeronáutica, o dano extrapatrimonial decorrente de falha no transporte aéreo deve ser demonstrado. No caso, o prejuízo é concreto e documentado: [descrever o efeito do atraso na vida da parte autora e os documentos que o comprovam].\n\n4. Dos danos materiais. Os gastos extraordinários suportados pela parte autora, no total de R$ {{valor_material}}, estão comprovados pelos documentos anexos e devem ser ressarcidos integralmente (art. 6º, VI, do CDC).\n\n`+DANO_MORAL+`#S DOS PEDIDOS\n\nDiante do exposto, requer:\na) a citação da Ré para comparecer à audiência de conciliação e, querendo, apresentar defesa, sob pena de revelia;\nb) a inversão do ônus da prova (art. 6º, VIII, do CDC);\nc) a condenação da Ré ao pagamento de R$ {{valor_material}} a título de danos materiais, com correção monetária desde o desembolso e juros de mora desde a citação;\nd) a condenação da Ré ao pagamento de R$ {{valor_moral}} a título de danos morais, com correção monetária desde o arbitramento e juros de mora desde a citação;\ne) a concessão da gratuidade da justiça para fins recursais.\n\n`+FECHO},
+ {id:"ini-neg",g:"Petições iniciais",n:"Negativação ou cobrança indevida",f:"inicial-negativacao",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","reu_nome","reu_cnpj","reu_endereco","comarca","valor_moral","valor_material","valor_causa","cidade_assinatura","data_assinatura"],
+  txt:CAB_JEC+ABERT("AÇÃO DECLARATÓRIA DE INEXISTÊNCIA DE DÉBITO C/C INDENIZAÇÃO POR DANOS MORAIS E PEDIDO DE TUTELA DE URGÊNCIA")+PRELIM+`#S III. DOS FATOS\n\nA parte autora foi surpreendida, em [DATA], ao [tentar crédito / consultar o CPF], com a inscrição de seu nome nos cadastros de proteção ao crédito ([SERASA/SPC/BOA VISTA]), por iniciativa da Ré, referente ao suposto débito de R$ [VALOR], contrato nº [Nº], com data de inclusão em [DATA].\n\n[Narrar: por que o débito é indevido — nunca contratou / dívida já paga em DATA / valor cobrado diverge do contratado; se recebeu notificação prévia; as tentativas de solução (protocolos, consumidor.gov, Procon) e as respostas da Ré.]\n\nRessalte-se que a parte autora não possui outras inscrições legítimas preexistentes, conforme consulta anexa, o que afasta a incidência da Súmula 385 do STJ.\n\n#S IV. QUADRO-RESUMO\n\nCredor: {{reu_nome}} | Valor negativado: R$ [__] | Data da inclusão: [__] | Motivo de ser indevido: [__] | Outras negativações: nenhuma | Protocolos: [__]\n\n#S V. DO DIREITO\n\n1. Da inexistência do débito e do ônus da prova. Cabe à Ré, nos termos do art. 6º, VIII, do CDC e do art. 373, II, do CPC, demonstrar a origem e a regularidade da dívida, apresentando o contrato assinado e a prova da contratação — prova que a parte autora, por se tratar de fato negativo, não tem como produzir.\n\n2. Da responsabilidade objetiva. A Ré responde independentemente de culpa pelos danos causados por falha na prestação do serviço (art. 14 do CDC), inclusive por fraudes praticadas por terceiros, que integram o risco da atividade.\n\n3. Do dano moral presumido. A inscrição indevida em cadastro de inadimplentes gera dano moral in re ipsa, que dispensa prova do prejuízo, por atingir diretamente a honra e o crédito do consumidor.\n\n[Se houve pagamento do valor cobrado: 4. Da repetição do indébito. O valor indevidamente pago deve ser restituído em dobro, com correção monetária e juros legais (art. 42, parágrafo único, do CDC).]\n\n#S VI. DA TUTELA DE URGÊNCIA\n\nEstão presentes os requisitos do art. 300 do CPC: a probabilidade do direito decorre dos documentos anexos, que demonstram [o pagamento / a inexistência de contratação]; o perigo de dano é evidente, pois a restrição impede a parte autora de obter crédito e realizar operações básicas. Requer, assim, a imediata exclusão do seu nome dos cadastros restritivos, sob pena de multa diária.\n\n`+DANO_MORAL+`#S DOS PEDIDOS\n\nDiante do exposto, requer:\na) a concessão de tutela de urgência para determinar a exclusão do nome da parte autora dos cadastros de proteção ao crédito, em até 48 horas, sob pena de multa diária de R$ [__];\nb) a citação da Ré para comparecer à audiência de conciliação e, querendo, apresentar defesa;\nc) a inversão do ônus da prova (art. 6º, VIII, do CDC);\nd) a declaração de inexistência do débito de R$ [__], referente ao contrato nº [__];\ne) a condenação da Ré ao pagamento de R$ {{valor_moral}} a título de danos morais, com correção desde o arbitramento e juros desde o evento danoso;\nf) [se houver pagamento] a restituição em dobro de R$ {{valor_material}};\ng) a concessão da gratuidade da justiça para fins recursais.\n\n`+FECHO},
+ {id:"ini-pix",g:"Petições iniciais",n:"Fraude bancária / PIX",f:"inicial-fraude-pix",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","reu_nome","reu_cnpj","reu_endereco","comarca","valor_moral","valor_material","valor_causa","cidade_assinatura","data_assinatura"],
+  txt:CAB_JEC+ABERT("AÇÃO DE RESTITUIÇÃO DE VALORES C/C INDENIZAÇÃO POR DANOS MORAIS")+PRELIM+`#S III. DOS FATOS\n\nA parte autora é correntista da Ré, agência [__], conta [__]. Em [DATA], às [HORA], foi realizada a transferência via PIX no valor de R$ {{valor_material}} para [NOME DO DESTINATÁRIO], [CPF/CNPJ], instituição [__], conforme comprovante e extrato anexos.\n\n[Narrar com precisão de horários: como ocorreu a fraude (falso gerente, falsa central, invasão, transação não reconhecida); se o fraudador possuía dados que apenas o banco detinha; quando a parte autora comunicou o banco, por qual canal e com qual protocolo; se houve pedido de MED; o boletim de ocorrência; a resposta do banco.]\n\nA operação destoou completamente do perfil de movimentação da parte autora [valor, horário, destinatário novo, sucessão de transações], e mesmo assim foi processada pelo sistema da Ré sem qualquer bloqueio ou confirmação adicional.\n\n#S IV. QUADRO-RESUMO\n\nData/hora da transação: [__] | Valor: R$ {{valor_material}} | Destinatário: [__] | Comunicação ao banco: [data/hora, protocolo] | MED: [sim/não] | Boletim de ocorrência: [nº] | Resposta do banco: [__]\n\n#S V. DO DIREITO\n\n1. Da responsabilidade objetiva da instituição financeira. As instituições financeiras respondem objetivamente pelos danos gerados por fortuito interno relativo a fraudes e delitos praticados por terceiros no âmbito de operações bancárias (Súmula 479 do STJ e art. 14 do CDC).\n\n2. Do dever de segurança e de monitoramento. Compete à instituição manter sistemas capazes de identificar transações atípicas e incompatíveis com o perfil do cliente, bem como proteger os dados pessoais sob sua guarda (art. 46 da Lei nº 13.709/2018). [Se o golpista conhecia dados bancários do cliente: o conhecimento, pelo fraudador, de dados que somente a Ré detinha evidencia falha na guarda de informações.]\n\n3. Do Mecanismo Especial de Devolução. O Regulamento do Pix (Resolução BCB nº 1/2020) prevê o MED justamente para recuperar valores em casos de fraude. [Descrever se a Ré deixou de acioná-lo, acionou tardiamente ou não informou o resultado.]\n\n4. Do dano material. O prejuízo de R$ {{valor_material}} está documentado pelo extrato e pelo comprovante anexos e deve ser integralmente restituído, com correção desde o desembolso.\n\n`+DANO_MORAL+`#S DOS PEDIDOS\n\nDiante do exposto, requer:\na) a citação da Ré para comparecer à audiência de conciliação e, querendo, apresentar defesa;\nb) a inversão do ônus da prova (art. 6º, VIII, do CDC), determinando-se à Ré a apresentação dos registros de acesso, dispositivo, IP e geolocalização da operação impugnada;\nc) a condenação da Ré à restituição de R$ {{valor_material}}, com correção monetária desde a transação e juros desde a citação;\nd) a condenação da Ré ao pagamento de R$ {{valor_moral}} a título de danos morais;\ne) a concessão da gratuidade da justiça para fins recursais.\n\n`+FECHO},
+ {id:"ini-vicio",g:"Petições iniciais",n:"Vício do produto / compra online",f:"inicial-vicio-produto",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","reu_nome","reu_cnpj","reu_endereco","comarca","valor_moral","valor_material","valor_causa","cidade_assinatura","data_assinatura"],
+  txt:CAB_JEC+ABERT("AÇÃO DE RESTITUIÇÃO DE VALORES C/C INDENIZAÇÃO POR DANOS MORAIS")+PRELIM+`#S III. DOS FATOS\n\nEm [DATA], a parte autora adquiriu da Ré o produto [DESCRIÇÃO, MODELO], pelo valor de R$ {{valor_material}}, conforme Nota Fiscal nº [__] e comprovante de pagamento anexos.\n\n[Narrar: data da entrega; data e forma em que o defeito se manifestou; reclamações e protocolos (datas, canais, atendentes); visitas técnicas e ordens de serviço; prazo de 30 dias transcorrido sem solução; recusa de troca ou reembolso; impacto no dia a dia, especialmente se o produto é essencial.]\n\n#S IV. QUADRO-RESUMO\n\nProduto: [__] | Compra: [data, NF] | Valor: R$ {{valor_material}} | Defeito constatado em: [__] | Primeira reclamação: [data, protocolo] | Dias sem solução: [__] | Protocolos/OS: [__]\n\n#S V. DO DIREITO\n\n1. Da responsabilidade solidária pelo vício. Fabricante e comerciante respondem solidariamente pelos vícios de qualidade que tornem o produto impróprio ao uso (arts. 7º, parágrafo único, 18 e 25, §1º, do CDC).\n\n2. Do prazo de 30 dias e do direito de escolha. Não sanado o vício no prazo máximo de 30 dias, o consumidor pode exigir, à sua escolha, a substituição do produto, a restituição imediata da quantia paga, monetariamente atualizada, ou o abatimento proporcional do preço (art. 18, §1º, do CDC). A parte autora opta pela [restituição integral / substituição].\n\n3. Da tempestividade. A reclamação comprovadamente formulada ao fornecedor obsta a decadência até a resposta negativa inequívoca (art. 26, §2º, I, do CDC). [Indicar datas.]\n\n[Se compra fora do estabelecimento e pedido de arrependimento: 4. Do direito de arrependimento. Nas contratações fora do estabelecimento comercial, o consumidor pode desistir em 7 dias, com devolução imediata dos valores pagos (art. 49 do CDC).]\n\n`+DANO_MORAL+`#S DOS PEDIDOS\n\nDiante do exposto, requer:\na) a citação da Ré para comparecer à audiência de conciliação e, querendo, apresentar defesa;\nb) a inversão do ônus da prova (art. 6º, VIII, do CDC);\nc) a condenação da Ré à restituição de R$ {{valor_material}}, com correção monetária desde o pagamento e juros desde a citação [ou à substituição do produto por outro da mesma espécie, em perfeitas condições];\nd) a condenação da Ré ao pagamento de R$ {{valor_moral}} a título de danos morais;\ne) a concessão da gratuidade da justiça para fins recursais.\n\n`+FECHO},
+ {id:"ini-conta",g:"Petições iniciais",n:"Bloqueio ou encerramento de conta",f:"inicial-bloqueio-conta",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","reu_nome","reu_cnpj","reu_endereco","comarca","valor_moral","valor_material","valor_causa","cidade_assinatura","data_assinatura"],
+  txt:CAB_JEC+ABERT("AÇÃO DE OBRIGAÇÃO DE FAZER C/C RESTITUIÇÃO DE VALORES, INDENIZAÇÃO POR DANOS MORAIS E PEDIDO DE TUTELA DE URGÊNCIA")+PRELIM+`#S III. DOS FATOS\n\nA parte autora mantinha conta de pagamento/depósito junto à Ré, nº [__]. Em [DATA], recebeu PIX no valor de R$ [__], de [ORIGEM], referente a [descrever a origem lícita: venda, salário, serviço prestado], conforme documentos anexos.\n\n[Narrar: o bloqueio cautelar (data, valor, justificativa de MED, se houver); o bloqueio total da conta; o encerramento sem comunicação prévia; o saldo retido de R$ {{valor_material}}; os contatos com a Ré e as respostas; as reclamações no Banco Central (RDR) e no consumidor.gov; eventual marcação de fraude no DICT; os prejuízos concretos (contas não pagas, atividade profissional interrompida).]\n\n#S IV. QUADRO-RESUMO\n\nConta: [__] | Bloqueio em: [__] | Encerramento em: [__] | Comunicação prévia: não houve | Saldo retido: R$ {{valor_material}} | Origem dos valores: [__] | Reclamações: [protocolos]\n\n#S V. DO DIREITO\n\n1. Do encerramento unilateral sem comunicação prévia. A Resolução CMN nº 4.753/2019 exige que o encerramento de conta por iniciativa da instituição seja precedido de comunicação ao titular, com indicação de prazo para as providências necessárias. A Ré não observou esse dever.\n\n2. Da retenção indevida do saldo. Ainda que admitido o encerramento, é abusiva a retenção do saldo do correntista sem decisão judicial ou justificativa concreta e documentada (arts. 39, V, e 51, IV, do CDC). O bloqueio cautelar previsto no Regulamento do Pix é limitado no tempo e no valor, e não autoriza a retenção indefinida.\n\n3. Da responsabilidade objetiva. A falha na prestação do serviço gera o dever de indenizar, independentemente de culpa (art. 14 do CDC).\n\n#S VI. DA TUTELA DE URGÊNCIA\n\nA probabilidade do direito decorre da prova da origem lícita dos valores e da ausência de comunicação prévia; o perigo de dano é evidente, pois a parte autora está privada de recursos necessários à própria subsistência. Requer a imediata liberação ou transferência do saldo retido para conta de sua titularidade, sob pena de multa diária (art. 300 do CPC).\n\n`+DANO_MORAL+`#S DOS PEDIDOS\n\nDiante do exposto, requer:\na) a concessão de tutela de urgência para determinar a liberação do saldo de R$ {{valor_material}}, mediante transferência para conta indicada pela parte autora, em 48 horas, sob pena de multa diária;\nb) a citação da Ré para comparecer à audiência de conciliação e, querendo, apresentar defesa;\nc) a inversão do ônus da prova (art. 6º, VIII, do CDC), com a apresentação pela Ré do dossiê que motivou o bloqueio;\nd) a confirmação da tutela e a condenação da Ré à restituição de R$ {{valor_material}}, corrigidos;\ne) [se houver] a determinação de exclusão de marcações de fraude registradas pela Ré no DICT;\nf) a condenação da Ré ao pagamento de R$ {{valor_moral}} a título de danos morais;\ng) a concessão da gratuidade da justiça para fins recursais.\n\n`+FECHO},
+ {id:"ini-energia",g:"Petições iniciais",n:"Falha em serviço essencial (energia/água)",f:"inicial-servico-essencial",campos:["cliente_nome","cliente_nacionalidade","cliente_estado_civil","cliente_profissao","cliente_rg","cliente_cpf","cliente_endereco","cliente_email","cliente_telefone","reu_nome","reu_cnpj","reu_endereco","comarca","valor_moral","valor_material","valor_causa","cidade_assinatura","data_assinatura"],
+  txt:CAB_JEC+ABERT("AÇÃO DE INDENIZAÇÃO POR DANOS MATERIAIS E MORAIS")+PRELIM+`#S III. DOS FATOS\n\nA parte autora é usuária dos serviços prestados pela Ré, unidade consumidora/matrícula nº [__], no endereço [__].\n\n[Narrar: data e horário do início e do fim da interrupção ou falha; tipo de falha (interrupção total, oscilação, queda de fase, demora na religação, cobrança indevida); protocolos abertos; resposta da Ré; prejuízos concretos — alimentos perdidos, equipamentos danificados, evento prejudicado, atividade profissional interrompida — e documentos que os comprovam.]\n\n#S IV. QUADRO-RESUMO\n\nUnidade consumidora: [__] | Início da falha: [__] | Restabelecimento: [__] | Duração: [__ horas] | Protocolos: [__] | Danos materiais: R$ {{valor_material}}\n\n#S V. DO DIREITO\n\n1. Do serviço essencial e do dever de continuidade. Os órgãos públicos e suas concessionárias são obrigados a fornecer serviços adequados, eficientes, seguros e, quanto aos essenciais, contínuos (art. 22 do CDC), respondendo objetivamente pelos danos causados (art. 37, §6º, da Constituição Federal, e art. 14 do CDC).\n\n2. Da regulação setorial. [Energia: a Resolução Normativa ANEEL nº 1.000/2021 disciplina os prazos de atendimento e restabelecimento — indicar os prazos descumpridos. Observação: o procedimento de ressarcimento de danos elétricos a equipamentos não se confunde com a responsabilidade civil pela falha do serviço.]\n\n3. Da inexistência de excludente. Eventos climáticos previsíveis e falhas na rede de distribuição constituem fortuito interno, inerente à atividade da concessionária.\n\n`+DANO_MORAL+`#S DOS PEDIDOS\n\nDiante do exposto, requer:\na) a citação da Ré para comparecer à audiência de conciliação e, querendo, apresentar defesa;\nb) a inversão do ônus da prova (art. 6º, VIII, do CDC), com a apresentação pela Ré dos registros de ocorrência da unidade consumidora no período;\nc) a condenação da Ré ao pagamento de R$ {{valor_material}} a título de danos materiais, corrigidos desde o prejuízo;\nd) a condenação da Ré ao pagamento de R$ {{valor_moral}} a título de danos morais;\ne) a concessão da gratuidade da justiça para fins recursais.\n\n`+FECHO}
+];
+function todosModelos(){return MODELOS.concat(S.modelos.map(m=>({id:"u:"+m.id,uid:m.id,g:"Meus modelos",n:m.nome,f:(m.nome||"modelo").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9]+/g,"-"),campos:camposDoTexto(m.texto||""),txt:m.texto||""})))}
+function camposDoTexto(t){const s=new Set();(t.match(/\{\{(\w+)\}\}/g)||[]).forEach(x=>{const k=x.slice(2,-2);if(!k.startsWith("esc_")&&k!=="advogados"&&k!=="assinaturas")s.add(k)});return [...s]}
+function valoresModelo(){
+  const c=cfg();const caso=S.casos.find(x=>x.id===F.mod.casoId);
+  const base={cidade_assinatura:c.cidade||"Salvador/BA",data_assinatura:extenso(hojeISO()),honor_exito:"30",foro:(c.cidade||"Salvador/BA"),cliente_nacionalidade:"brasileiro(a)"};
+  if(caso){base.cliente_nome=caso.cliente;base.reu_nome=caso.contra;base.processo=caso.processo;base.cliente_telefone=caso.telefone||"";const m=(caso.juizo||"").match(/[–-]\s*([^–-]+)$/);if(m)base.comarca=m[1].trim().toUpperCase()+"/BA"}
+  return Object.assign(base,F.mod.vals);
+}
+function preencher(txt,v){
+  const c=cfg();
+  const advs=[c.adv1||"TIANA RIBEIRO COSTA, advogada, inscrita na OAB/BA sob o nº 61.074",c.adv2===undefined?"YCARO CARVALHO SILVA, advogado, inscrito na OAB/BA sob o nº 70.857":c.adv2].filter(Boolean);
+  const nomes=advs.map(a=>a.split(",")[0].trim());const oabs=advs.map(a=>(a.match(/OAB\/?\w*\s*(sob o\s*)?n?º?\s*[\d.]+/i)||[""])[0].replace(/sob o\s*/i,""));
+  const sys={esc_nome:c.nome||"Tiana Ribeiro Advocacia e Consultoria",esc_endereco:c.endereco,esc_email:c.email,esc_pix:c.pix,advogados:advs.join(" e "),assinaturas:nomes.map((n,i)=>"_______________________________________\n"+n+"\n"+(oabs[i]||"")).join("\n\n\n")};
+  return txt.replace(/\{\{(\w+)\}\}/g,(m,k)=>{const val=k in sys?sys[k]:v[k];return val?String(val):"⟦"+(CAMPOS[k]||k).toUpperCase()+"⟧"});
+}
+function paperHTML(t){
+  return esc(t).split("\n").map(l=>{
+    if(l.startsWith("#T "))return `<span class="tit">${l.slice(3)}</span>`;
+    if(l.startsWith("#S "))return `<span class="sec">${l.slice(3)}</span>`;
+    return l;
+  }).join("\n").replace(/\[([^\]\n]{2,})\]/g,'<span class="hl">[$1]</span>').replace(/⟦([^⟧]+)⟧/g,'<span class="hl">[$1]</span>');
+}
+function textoLimpo(t){return t.split("\n").map(l=>l.replace(/^#[TS] /,"")).join("\n").replace(/⟦([^⟧]+)⟧/g,"[$1]")}
+function vModelos(){
+  const ms=todosModelos();let m=ms.find(x=>x.id===F.mod.id)||ms[0];F.mod.id=m.id;
+  const v=valoresModelo();const txt=preencher(m.txt,v);
+  const grupos=[...new Set(ms.map(x=>x.g))];
+  const faltam=(txt.match(/⟦/g)||[]).length;
+  const casosOpt=S.casos.filter(ativo).sort((a,b)=>String(a.cliente).localeCompare(String(b.cliente),"pt-BR"));
+  posRender.modelos=()=>{
+    document.querySelectorAll("[data-mod]").forEach(b=>b.addEventListener("click",()=>{F.mod.id=b.dataset.mod;render()}));
+    document.querySelectorAll("[data-campo]").forEach(i=>i.addEventListener("input",()=>{F.mod.vals[i.dataset.campo]=i.value;const vv=valoresModelo();const t=preencher(m.txt,vv);$("paper").innerHTML=paperHTML(t);$("faltam").textContent=contaFaltam(t)}));
+    $("mcaso").onchange=e=>{F.mod.casoId=e.target.value;F.mod.vals={};render()};
+    $("mcopy").onclick=()=>copiar(textoLimpo(preencher(m.txt,valoresModelo())));
+    $("mdocx").onclick=()=>baixarDocx(m,preencher(m.txt,valoresModelo()));
+    $("mnovo").onclick=()=>formModelo();
+    if($("medit"))$("medit").onclick=()=>formModelo(S.modelos.find(x=>x.id===m.uid));
+    $("mlimpa").onclick=()=>{F.mod.vals={};render()};
+  };
+  return `<div class="view-h"><div><h1>Modelos</h1><p>Procurações, contrato de honorários e iniciais com a qualificação preenchida a partir do processo.</p></div>
+  <div class="acts"><button class="btn" type="button" id="mnovo">+ Meu modelo</button></div></div>
+  ${aviso()}
+  <div class="mod-layout">
+    <nav class="panel mod-list" aria-label="Modelos">${grupos.map(g=>`<h4>${esc(g)}</h4>${ms.filter(x=>x.g===g).map(x=>`<button type="button" data-mod="${esc(x.id)}" aria-current="${x.id===m.id}">${esc(x.n)}</button>`).join("")}`).join("")}</nav>
+    <div class="mod-work">
+      <section class="panel"><div class="ph"><h2>Dados do documento</h2><button class="link" type="button" id="mlimpa">Limpar</button></div>
+        <div class="fields">
+          <label>Puxar dados de um processo<select id="mcaso"><option value="">— nenhum —</option>${casosOpt.map(c=>`<option value="${esc(c.id)}" ${F.mod.casoId===c.id?"selected":""}>${esc(c.cliente)}${c.contra?" x "+esc(c.contra):""}</option>`).join("")}</select></label>
+          ${m.campos.map(k=>`<label>${esc(CAMPOS[k]||k)}<input type="text" data-campo="${k}" id="mc_${k}" value="${esc(v[k]||"")}"></label>`).join("")}
+          <p class="note" style="margin:4px 0 0">Endereço, e-mail e PIX do escritório vêm de “Dados do escritório”, no menu.</p>
+        </div></section>
+      <div style="min-width:0">
+        <div class="paper-acts"><button class="btn primary" type="button" id="mdocx">Baixar Word (.docx)</button><button class="btn" type="button" id="mcopy">Copiar texto</button>${m.uid?'<button class="btn" type="button" id="medit">Editar modelo</button>':""}<span class="note" id="faltam">${contaFaltam(txt)}</span></div>
+        <article class="paper" id="paper">${paperHTML(txt)}</article>
+      </div>
+    </div>
+  </div>`;
+}
+function contaFaltam(t){const a=(t.match(/⟦/g)||[]).length,b=(textoLimpo(t).match(/\[[^\]\n]{2,}\]/g)||[]).length-a;return a?`${a} campo${a>1?"s":""} sem preencher${b>0?" · "+b+" trechos para completar":""}`:b>0?`${b} trechos para completar no texto`:"Documento completo"}
+function formModelo(mm){
+  modal({titulo:mm?"Editar modelo":"Novo modelo",valores:mm||{},campos:[{k:"nome",l:"Nome do modelo",span:6},{k:"texto",l:"Texto",t:"area",rows:14,span:6}],
+    extra:`<p class="note" style="grid-column:span 6;margin:0">Use campos entre chaves duplas, por exemplo {{cliente_nome}}, {{cliente_cpf}}, {{reu_nome}}, {{processo}}, {{advogados}}, {{assinaturas}}, {{data_assinatura}}. Comece uma linha com “#T ” para título centralizado e “#S ” para seção em negrito.</p>`,
+    onSave:async o=>{if(!o.nome||!o.texto){toast("Preencha nome e texto.");return false}const ok=await salvar("modelos",mm&&mm.id,o);if(ok){toast("Modelo salvo");if(!mm)setTimeout(()=>{const n=S.modelos.find(x=>x.nome===o.nome);if(n){F.mod.id="u:"+n.id;render()}},600)}return ok},
+    onDelete:mm?async()=>{const ok=await excluir("modelos",mm.id);if(ok)F.mod.id="proc-adjudicia";return ok}:null});
+}
+function xmlEsc(s){return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;")}
+function runs(text,bold){
+  const parts=text.split(/(⟦[^⟧]+⟧|\[[^\]\n]{2,}\])/);
+  return parts.filter(p=>p!=="").map(p=>{const hl=/^(⟦|\[)/.test(p);const t=p.replace(/^⟦/,"[").replace(/⟧$/,"]");
+    return `<w:r><w:rPr><w:rFonts w:ascii="Arial" w:hAnsi="Arial" w:cs="Arial"/>${bold?"<w:b/>":""}${hl?'<w:highlight w:val="yellow"/>':""}<w:sz w:val="24"/></w:rPr><w:t xml:space="preserve">${xmlEsc(t)}</w:t></w:r>`}).join("");
+}
+async function baixarDocx(m,txt){
+  if(typeof JSZip==="undefined"){toast("O gerador de Word não carregou. Use “Copiar texto”.");return}
+  if(!dl){toast("Download indisponível nesta visualização. Use “Copiar texto”.");return}
+  const ps=txt.split("\n").map(l=>{
+    let al="both",b=false,t=l,color="";
+    if(l.startsWith("#T ")){al="center";b=true;t=l.slice(3);color='<w:color w:val="1F3864"/>'}
+    else if(l.startsWith("#S ")){b=true;t=l.slice(3)}
+    else if(l.length<80&&!/[.;:]$/.test(l.trim()))al="left";
+    const sp=t.trim()===""?'<w:spacing w:after="0" w:line="276" w:lineRule="auto"/>':'<w:spacing w:after="120" w:line="360" w:lineRule="auto"/>';
+    const ind=(!l.startsWith("#")&&t.length>90)?'<w:ind w:firstLine="1418"/>':"";
+    let r=runs(t,b);if(color)r=r.replace(/<w:b\/>/g,"<w:b/>"+color);
+    return `<w:p><w:pPr><w:jc w:val="${al}"/>${sp}${ind}</w:pPr>${r}</w:p>`;
+  }).join("");
+  const doc=`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><w:document xmlns:w="http://schemas.openxmlformats.org/wordprocessingml/2006/main"><w:body>${ps}<w:sectPr><w:pgSz w:w="11906" w:h="16838"/><w:pgMar w:top="1701" w:right="1134" w:bottom="1134" w:left="1701" w:header="709" w:footer="709" w:gutter="0"/></w:sectPr></w:body></w:document>`;
+  const zip=new JSZip();
+  zip.file("[Content_Types].xml",`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Types xmlns="http://schemas.openxmlformats.org/package/2006/content-types"><Default Extension="rels" ContentType="application/vnd.openxmlformats-package.relationships+xml"/><Default Extension="xml" ContentType="application/xml"/><Override PartName="/word/document.xml" ContentType="application/vnd.openxmlformats-officedocument.wordprocessingml.document.main+xml"/></Types>`);
+  zip.file("_rels/.rels",`<?xml version="1.0" encoding="UTF-8" standalone="yes"?><Relationships xmlns="http://schemas.openxmlformats.org/package/2006/relationships"><Relationship Id="rId1" Type="http://schemas.openxmlformats.org/officeDocument/2006/relationships/officeDocument" Target="word/document.xml"/></Relationships>`);
+  zip.file("word/document.xml",doc);
+  const blob=await zip.generateAsync({type:"blob",mimeType:"application/vnd.openxmlformats-officedocument.wordprocessingml.document"});
+  const caso=S.casos.find(x=>x.id===F.mod.casoId);const nm=(caso?caso.cliente:(F.mod.vals.cliente_nome||"")).split(" ")[0];
+  const fn=(m.f+(nm?"-"+nm:"")).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g,"").replace(/[^a-z0-9-]+/g,"-")+".docx";
+  try{await dl.save({filename:fn,data:blob});toast("Documento salvo")}catch(e){if(e&&e.code==="declined")return;toast(e&&e.code==="extension_not_enabled"?"Download de Word indisponível aqui. Use “Copiar texto”.":"Não foi possível baixar. Use “Copiar texto”.")}
+}
+
+/* ============================== TRIAGEM ============================== */
+const O=(t,p,x)=>Object.assign({t,p:p||0},x||{});
+const TRI=[
+ {id:"voo",n:"Voo: atraso, cancelamento, bagagem",d:"Companhias aéreas e agências",modelo:"ini-voo",qs:[
+  {q:"O que aconteceu?",o:[O("Atraso",0),O("Cancelamento",1),O("Overbooking / preterição",2),O("Extravio ou dano de bagagem",1),O("Alteração unilateral de horário",0)]},
+  {q:"Quanto tempo de atraso na chegada ao destino final?",h:"Atraso inferior a 4 horas raramente gera dano moral; a Res. ANAC 400 trata de reacomodação a partir de 4h.",o:[O("Menos de 1 hora",-4,{alerta:"Atraso inferior a 1 hora: dano moral muito improvável."}),O("De 1 a 4 horas",0,{alerta:"Atraso entre 1 e 4 horas: exige prejuízo concreto bem demonstrado."}),O("Mais de 4 horas",3,{forte:"Atraso superior a 4 horas no destino final."}),O("Não chegou / desistiu da viagem",3,{forte:"Viagem frustrada."})]},
+  {q:"O voo era nacional ou internacional?",o:[O("Nacional",0),O("Internacional",0,{alerta:"Voo internacional: Convenção de Montreal limita danos materiais e prazo de 2 anos (Tema 210/STF)."})]},
+  {q:"Recebeu assistência material (alimentação, hospedagem, transporte)?",o:[O("Não recebeu nada",2,{forte:"Assistência material negada (arts. 26 e 27 da Res. ANAC 400)."}),O("Recebeu parcialmente",1),O("Recebeu tudo",-1)]},
+  {q:"Foi avisado com antecedência?",o:[O("Não, soube no aeroporto",2,{forte:"Sem aviso prévio — soube no aeroporto."}),O("Avisado com menos de 72h",1),O("Avisado com mais de 72h",-3,{alerta:"Aviso com mais de 72h cumpre o art. 12 da Res. ANAC 400 e enfraquece a ação."})]},
+  {q:"Houve consequência concreta?",h:"O art. 251-A do CBA exige demonstração do dano extrapatrimonial.",o:[O("Sim (perdeu compromisso, trabalho, evento, prova, conexão)",3,{forte:"Prejuízo concreto identificado."}),O("Não, apenas o transtorno",-2,{alerta:"Sem prejuízo concreto: risco alto de improcedência do dano moral (art. 251-A do CBA)."})]},
+  {q:"Qual motivo a companhia alegou?",o:[O("Problema técnico ou operacional",1,{forte:"Motivo técnico/operacional é fortuito interno."}),O("Condições meteorológicas",-2,{alerta:"Meteorologia pode ser aceita como força maior; buscar METAR/registros do aeroporto."}),O("Não informou",1),O("Fechamento de aeroporto / controle de tráfego",-2,{alerta:"Excludente alegável pela companhia."})]},
+  {q:"Teve gastos extras com comprovante?",o:[O("Sim, com notas e recibos",2,{doc:"Notas fiscais e recibos dos gastos extras"}),O("Sim, mas sem comprovante",0,{alerta:"Gastos sem comprovante não serão ressarcidos."}),O("Não",0)]},
+  {q:"Tem cartão de embarque, e-mails e prints do app?",o:[O("Tem tudo",2),O("Tem parte",0,{doc:"Completar provas: cartão de embarque, e-mails e prints"}),O("Não tem",-3,{alerta:"Sem prova documental da viagem e do atraso."})]},
+  {q:"Data do voo",tipo:"data",prazo:{anos:5,anosIntl:2}}],
+  docs:["RG, CPF e comprovante de residência","Bilhete/reserva com localizador","Cartão de embarque (original e remarcado)","E-mails, SMS e prints do app da companhia","Comprovantes de gastos extras","Prova do compromisso perdido (convite, convocação, declaração do empregador)","Protocolos de reclamação na companhia / consumidor.gov.br"]},
+ {id:"pix",n:"Banco: golpe, PIX, fraude",d:"Transações não reconhecidas e golpes",modelo:"ini-pix",qs:[
+  {q:"Como aconteceu?",o:[O("Transação não reconhecida (não foi o cliente)",3,{forte:"Transação não realizada pelo cliente."}),O("Golpe do falso gerente / falsa central",1),O("Invasão do app / celular roubado",2),O("Boleto ou PIX para golpista em compra",-2,{alerta:"Golpe em compra com terceiro: banco tende a alegar culpa exclusiva da vítima."})]},
+  {q:"O fraudador tinha dados que só o banco teria?",o:[O("Sim (nome do gerente, saldo, últimas transações)",3,{forte:"Fraudador com dados bancários sigilosos — indício de vazamento."}),O("Não sei",0),O("Não",-1)]},
+  {q:"A transação foi fora do perfil do cliente?",h:"Valor alto, horário incomum, destinatário novo, várias transações seguidas.",o:[O("Sim, totalmente atípica",3,{forte:"Operação atípica que o sistema deveria barrar."}),O("Mais ou menos",1),O("Não",-1)]},
+  {q:"Quanto tempo depois avisou o banco?",o:[O("Em até 1 hora",2),O("No mesmo dia",1),O("Dias depois",-1,{alerta:"Comunicação tardia ao banco."})]},
+  {q:"Pediu o MED / contestação formal?",o:[O("Sim, com protocolo",2,{doc:"Protocolo da contestação/MED"}),O("Sim, sem protocolo",0),O("Não",-1,{alerta:"Sem pedido de MED."})]},
+  {q:"Tem extrato e comprovante da transação?",h:"Sem extrato, o dano material não fica provado.",o:[O("Tem os dois",3),O("Só o comprovante",0,{doc:"Extrato bancário do período",alerta:"Falta o extrato: obter antes de ajuizar."}),O("Nenhum",-4,{alerta:"Sem extrato nem comprovante: dano material não comprovado.",doc:"Extrato e comprovante da transação"})]},
+  {q:"Fez boletim de ocorrência?",o:[O("Sim",1,{doc:"Boletim de ocorrência"}),O("Não",0,{doc:"Registrar boletim de ocorrência"})]},
+  {q:"O banco devolveu algum valor?",o:[O("Não",1),O("Parcialmente",0),O("Sim, tudo",-4,{alerta:"Valor já devolvido: restaria apenas eventual dano moral."})]},
+  {q:"Data da transação",tipo:"data",prazo:{anos:5}}],
+  docs:["RG, CPF e comprovante de residência","Extrato bancário do período","Comprovante do PIX/transação","Prints das conversas com o golpista (com número)","Protocolos e respostas do banco","Boletim de ocorrência","Reclamação no Banco Central (RDR), se houver"]},
+ {id:"neg",n:"Negativação ou cobrança indevida",d:"SPC, Serasa, cobranças",modelo:"ini-neg",qs:[
+  {q:"Por que a cobrança é indevida?",o:[O("Nunca contratou / fraude de terceiro",3,{forte:"Débito sem contratação: ônus da prova é da ré."}),O("A dívida já foi paga",3,{forte:"Dívida paga e mantida a restrição."}),O("Valor diferente do contratado",1),O("Contrato cancelado",2)]},
+  {q:"Tem outras negativações anteriores?",h:"Súmula 385 do STJ: com inscrição legítima preexistente, não cabe dano moral.",o:[O("Não, é a única",3,{forte:"Sem outras inscrições: afasta a Súmula 385."}),O("Sim, mas também indevidas",0,{alerta:"Contestar as demais inscrições primeiro ou em conjunto."}),O("Sim, legítimas",-5,{alerta:"Súmula 385/STJ: dano moral inviável; resta só declaratória e exclusão."}),O("Não sei",0,{doc:"Consulta atualizada Serasa/SPC/Boa Vista e Registrato"})]},
+  {q:"Tem prova (comprovante de pagamento, cancelamento, BO)?",o:[O("Sim",2),O("Parcial",0),O("Não",-2,{alerta:"Sem documento que sustente a versão do cliente."})]},
+  {q:"Recebeu notificação prévia da inscrição?",o:[O("Não",1,{forte:"Sem notificação prévia (art. 43, §2º, CDC)."}),O("Sim",0),O("Não sei",0)]},
+  {q:"Chegou a pagar o valor cobrado?",o:[O("Sim",1,{forte:"Pagamento indevido: repetição em dobro (art. 42, parágrafo único, CDC)."}),O("Não",0)]},
+  {q:"Tentou resolver com protocolo?",o:[O("Sim",1,{doc:"Protocolos de atendimento"}),O("Não",0)]},
+  {q:"Data da inclusão do nome",tipo:"data",prazo:{anos:5}}],
+  docs:["RG, CPF e comprovante de residência","Consulta Serasa/SPC/Boa Vista atualizada","Relatório do Registrato (Banco Central)","Comprovantes de pagamento","Protocolos e e-mails com a empresa","Boletim de ocorrência, se houver fraude"]},
+ {id:"vicio",n:"Produto com defeito ou compra online",d:"Vício, entrega, arrependimento",modelo:"ini-vicio",qs:[
+  {q:"Qual é o problema?",o:[O("Produto com defeito",1),O("Não entregue / atraso na entrega",1),O("Entregue avariado",2),O("Arrependimento (compra online)",0)]},
+  {q:"Reclamou formalmente ao vendedor ou fabricante?",h:"A reclamação comprovada obsta a decadência (art. 26, §2º, I, CDC).",o:[O("Sim, com protocolo",2,{forte:"Reclamação formal documentada."}),O("Sim, sem protocolo",0,{alerta:"Reclamação sem prova: risco de decadência."}),O("Não",-2,{alerta:"Sem reclamação prévia: risco de decadência (30 dias não duráveis / 90 dias duráveis)."})]},
+  {q:"Passaram 30 dias sem solução?",h:"Art. 18, §1º, CDC.",o:[O("Sim",3,{forte:"Prazo de 30 dias para sanar o vício esgotado."}),O("Ainda não",-2,{alerta:"Aguardar o prazo de 30 dias ou documentar a recusa."}),O("Empresa recusou a solução",3,{forte:"Recusa expressa da empresa."})]},
+  {q:"Houve várias visitas técnicas ou idas à loja?",o:[O("Sim, várias",2,{forte:"Desvio produtivo: várias tentativas frustradas."}),O("Uma",1),O("Nenhuma",0)]},
+  {q:"O produto é essencial no dia a dia?",o:[O("Sim (geladeira, celular, fogão, ar-condicionado em cidade quente)",2,{forte:"Produto essencial."}),O("Não",0)]},
+  {q:"Tem nota fiscal?",o:[O("Sim",1),O("Não",-2,{doc:"Nota fiscal ou comprovante de compra",alerta:"Sem nota fiscal."})]},
+  {q:"A empresa já devolveu o dinheiro ou trocou?",o:[O("Não",1),O("Sim, mas com muito atraso",0,{alerta:"Solução tardia: só dano moral pelo desvio produtivo."}),O("Sim, rapidamente",-4,{alerta:"Problema resolvido em tempo razoável: ação inviável."})]},
+  {q:"Data da compra",tipo:"data",prazo:{anos:5}}],
+  docs:["RG, CPF e comprovante de residência","Nota fiscal","Comprovante de pagamento","Protocolos, ordens de serviço e laudos técnicos","Fotos e vídeos do defeito","Prints das conversas com loja/fabricante"]},
+ {id:"conta",n:"Conta bloqueada ou encerrada",d:"Bancos e fintechs, MED, saldo retido",modelo:"ini-conta",qs:[
+  {q:"O que aconteceu com a conta?",o:[O("Bloqueio de um valor (MED)",1),O("Bloqueio total da conta",2),O("Conta encerrada",2),O("Encerrada com saldo retido",3,{forte:"Saldo retido após encerramento."})]},
+  {q:"Recebeu comunicação prévia do encerramento?",o:[O("Não",2,{forte:"Encerramento sem comunicação prévia (Res. CMN 4.753/2019)."}),O("Sim",-1),O("Não houve encerramento",0)]},
+  {q:"Consegue provar a origem lícita do dinheiro?",o:[O("Sim (nota, contrato, conversa de venda)",3,{forte:"Origem lícita documentada."}),O("Em parte",0,{doc:"Provas da origem dos valores (notas, conversas de venda, contratos)"}),O("Não",-4,{alerta:"Sem prova da origem dos valores: risco alto."})]},
+  {q:"Reclamou no Banco Central?",o:[O("Sim",1,{doc:"Protocolos RDR do Banco Central e respostas"}),O("Não",0,{doc:"Abrir reclamação no Banco Central e emitir Registrato"})]},
+  {q:"Há marcação de fraude no DICT ou outras contas encerradas?",o:[O("Sim",1,{alerta:"Verificar marcações no DICT e incluir pedido de exclusão; avaliar outras instituições no polo passivo."}),O("Não sei",0,{doc:"Consultar Registrato e resposta do Banco Central sobre marcações"}),O("Não",0)]},
+  {q:"Teve prejuízo concreto (contas atrasadas, trabalho parado)?",o:[O("Sim",2,{forte:"Prejuízo concreto pela privação dos valores."}),O("Não",0)]},
+  {q:"Data do bloqueio",tipo:"data",prazo:{anos:5}}],
+  docs:["RG, CPF e comprovante de residência","Extratos da conta","Comprovantes dos PIX recebidos","Prova da origem lícita dos valores","Prints do app mostrando bloqueio/encerramento","Protocolos com a instituição e no Banco Central"]},
+ {id:"energia",n:"Energia, água ou telefonia",d:"Interrupção, falha, cobrança",modelo:"ini-energia",qs:[
+  {q:"Qual foi a falha?",o:[O("Interrupção prolongada",2),O("Queda de fase / oscilação",1),O("Demora na religação",2),O("Cobrança indevida / fatura abusiva",1),O("Equipamento queimado",1,{alerta:"Para equipamentos, avaliar antes o pedido administrativo de ressarcimento de danos elétricos."})]},
+  {q:"Quanto tempo durou?",o:[O("Menos de 4 horas",-2,{alerta:"Interrupção curta: dano moral improvável sem circunstância especial."}),O("De 4 a 24 horas",1),O("Mais de 24 horas",3,{forte:"Interrupção superior a 24 horas."})]},
+  {q:"Aconteceu em ocasião especial ou atingiu atividade profissional?",o:[O("Sim",3,{forte:"Circunstância agravante (evento, trabalho, pessoa vulnerável)."}),O("Não",0)]},
+  {q:"Abriu protocolo na concessionária?",o:[O("Sim",2,{doc:"Números dos protocolos"}),O("Não",-1,{alerta:"Sem protocolo, a concessionária alegará desconhecimento."})]},
+  {q:"Tem prejuízos materiais comprovados?",o:[O("Sim, com notas",2,{doc:"Notas e recibos dos prejuízos"}),O("Sim, sem notas",0),O("Não",0)]},
+  {q:"Data do ocorrido",tipo:"data",prazo:{anos:5}}],
+  docs:["RG, CPF e comprovante de residência","Fatura recente com nº da unidade consumidora","Protocolos de atendimento","Fotos, vídeos e testemunhas da falha","Notas e recibos de prejuízos"]}
+];
+function avaliar(t){
+  const R=F.tri.resp;let pts=0,max=0,min=0;const fortes=[],alertas=[],docs=[];let respondidas=0,total=0;
+  t.qs.forEach((q,i)=>{
+    if(q.tipo==="data"){total++;const v=R[i];if(v){respondidas++;const anos=(Date.now()-dt(v))/31557600000;const intl=t.id==="voo"&&R[2]===1;const lim=intl?(q.prazo.anosIntl||q.prazo.anos):q.prazo.anos;
+      if(anos>lim)alertas.unshift(`PRESCRIÇÃO: fato ocorrido há mais de ${lim} anos — pretensão possivelmente prescrita.`);else if(anos>lim-0.5)alertas.unshift(`Prazo prescricional de ${lim} anos vence em menos de 6 meses: priorizar o ajuizamento.`)}return}
+    total++;const ps=q.o.map(o=>o.p);max+=Math.max(...ps);min+=Math.min(...ps);
+    const r=R[i];if(r===undefined)return;respondidas++;const o=q.o[r];pts+=o.p;if(o.forte)fortes.push(o.forte);if(o.alerta)alertas.push(o.alerta);if(o.doc)docs.push(o.doc);
+  });
+  const pct=max===min?0:Math.round((pts-min)/(max-min)*100);
+  const prescrito=alertas.some(a=>a.startsWith("PRESCRIÇÃO"));
+  const bloqueio=alertas.some(a=>/Súmula 385\/STJ|ação inviável|dano moral muito improvável/.test(a));
+  let nivel=prescrito?"Inviável":pct>=68?"Alta":pct>=45?"Média":"Baixa";if(bloqueio&&nivel!=="Inviável")nivel="Baixa";
+  return {pct,nivel,fortes,alertas,docs:[...new Set(docs.concat(t.docs))],respondidas,total};
+}
+function vTriagem(){
+  const t=TRI.find(x=>x.id===F.tri.tipo);
+  posRender.triagem=()=>{
+    document.querySelectorAll("[data-tt]").forEach(b=>b.addEventListener("click",()=>{if(F.tri.tipo!==b.dataset.tt){F.tri.tipo=b.dataset.tt;F.tri.resp={};F.tri.parecer=""}render()}));
+    document.querySelectorAll("[data-q]").forEach(b=>b.addEventListener("click",()=>{const q=+b.dataset.q,o=+b.dataset.o;if(F.tri.resp[q]===o)delete F.tri.resp[q];else F.tri.resp[q]=o;F.tri.parecer="";const y=window.scrollY;render();window.scrollTo({top:y})}));
+    document.querySelectorAll("[data-qd]").forEach(i=>i.addEventListener("change",()=>{F.tri.resp[+i.dataset.qd]=i.value;const y=window.scrollY;render();window.scrollTo({top:y})}));
+    ["tcli","tcon"].forEach(id=>{const el=$(id);if(el)el.addEventListener("input",()=>{F.tri[id==="tcli"?"cliente":"contra"]=el.value})});
+    if(!t)return;
+    $("tWpp").onclick=()=>copiar(perguntasWpp(t));
+    $("tCad").onclick=()=>cadastrarTriagem(t);
+    $("tModelo").onclick=()=>{F.mod.id=t.modelo;F.mod.casoId="";F.mod.vals={cliente_nome:F.tri.cliente,reu_nome:F.tri.contra};ir("modelos")};
+    const p=$("tParecer");if(p)p.onclick=()=>parecerClaude(t);
+  };
+  const intro=`<div class="view-h"><div><h1>Triagem de caso novo</h1><p>Responda com o cliente e veja na hora se cabe ação, o que falta e quais documentos pedir.</p></div></div>${aviso()}
+  <div class="tri-types">${TRI.map(x=>`<button class="tri-type" type="button" data-tt="${x.id}" aria-pressed="${F.tri.tipo===x.id}"><b>${esc(x.n)}</b><span>${esc(x.d)}</span></button>`).join("")}</div>`;
+  if(!t)return intro+`<section class="panel"><div class="empty"><b>Escolha o tipo de caso acima</b>As perguntas mudam conforme o assunto. A avaliação considera súmulas, prazos e o que costuma derrubar ações no Juizado.</div></section>`;
+  const a=avaliar(t);const cor=a.nivel==="Alta"?"var(--ok)":a.nivel==="Média"?"var(--warn)":"var(--bad)";
+  return intro+`<div class="grid2">
+  <section class="panel"><div class="ph"><h2>${esc(t.n)}</h2><span>${a.respondidas} de ${a.total} respondidas</span></div>
+    <div class="fields" style="grid-template-columns:1fr 1fr;padding-bottom:4px"><label>Cliente<input type="text" id="tcli" value="${esc(F.tri.cliente)}"></label><label>Parte contrária<input type="text" id="tcon" value="${esc(F.tri.contra)}"></label></div>
+    <div class="qs">${t.qs.map((q,i)=>`<div class="q"><div class="qt">${esc(q.q)}</div>${q.h?`<div class="qh">${esc(q.h)}</div>`:""}
+      ${q.tipo==="data"?`<input type="date" data-qd="${i}" id="qd${i}" value="${esc(F.tri.resp[i]||"")}" style="max-width:200px">`:`<div class="opts">${q.o.map((o,j)=>`<button type="button" class="opt" data-q="${i}" data-o="${j}" aria-pressed="${F.tri.resp[i]===j}">${esc(o.t)}</button>`).join("")}</div>`}</div>`).join("")}</div></section>
+  <div class="stack tri-side">
+    <section class="panel verdict"><small class="src">Viabilidade</small><div class="vb" style="color:${a.respondidas?cor:"var(--muted)"}">${a.respondidas?a.nivel:"Aguardando respostas"}</div>
+      <div class="meter"><i style="width:${a.respondidas?Math.max(4,a.pct):0}%;background:${cor}"></i></div>
+      <div class="note">${a.respondidas<a.total?"Avaliação parcial — responda todas as perguntas.":"Avaliação completa."} Indicador de apoio; a decisão é da advogada.</div>
+      <div class="vlist">${a.alertas.length?`<h4 style="color:var(--bad)">Pontos de atenção</h4><ul>${a.alertas.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
+      ${a.fortes.length?`<h4 style="color:var(--ok)">Pontos fortes</h4><ul>${a.fortes.map(x=>`<li>${esc(x)}</li>`).join("")}</ul>`:""}
+      <h4>Documentos para pedir</h4><ul>${a.docs.map(x=>`<li>${esc(x)}</li>`).join("")}</ul></div>
+      ${F.tri.parecer?`<div class="parecer">${esc(F.tri.parecer)}</div>`:""}
+      <div class="paper-acts" style="margin:14px 0 0"><button class="btn primary" type="button" id="tCad">Cadastrar como processo</button><button class="btn" type="button" id="tModelo">Abrir modelo de inicial</button><button class="btn" type="button" id="tWpp">Copiar perguntas p/ WhatsApp</button>${sample?`<button class="btn gold" type="button" id="tParecer">Parecer com Claude</button>`:""}</div>
+    </section></div></div>`;
+}
+function resumoTri(t){const a=avaliar(t);return t.qs.map((q,i)=>{const r=F.tri.resp[i];return "• "+q.q+" "+(r===undefined?"(sem resposta)":q.tipo==="data"?fmtD(r):q.o[r].t)}).join("\n")+`\n\nViabilidade: ${a.nivel} (${a.pct}%)`+(a.alertas.length?"\nAtenção: "+a.alertas.join(" | "):"")}
+function perguntasWpp(t){return `Olá! Para eu analisar o seu caso, preciso que responda às perguntas abaixo:\n\n`+t.qs.map((q,i)=>`${i+1}. ${q.q}`+(q.tipo==="data"?"":"\n   ("+q.o.map(o=>o.t).join(" / ")+")")).join("\n\n")+`\n\nE, por favor, me envie:\n`+t.docs.map(d=>"✔ "+d).join("\n")+`\n\nDra. Tiana Ribeiro – OAB/BA nº 61.074`}
+async function cadastrarTriagem(t){
+  if(!F.tri.cliente){toast("Informe o nome do cliente na triagem.");$("tcli").focus();return}
+  const a=avaliar(t);
+  const ok=await salvar("casos",null,{cliente:F.tri.cliente,contra:F.tri.contra,area:"Consumidor",polo:"Autor(a)",fase:a.nivel==="Inviável"?"Finalizado":"Análise",processo:"",juizo:"",parceria:"",prazo:"",
+    proximo:a.nivel==="Alta"?"Coletar documentos e redigir a inicial":a.nivel==="Inviável"?"Comunicar inviabilidade ao cliente":"Coletar documentos e reavaliar",
+    obs:"Triagem ("+t.n+") em "+fmtD(hojeISO())+":\n"+resumoTri(t)+(F.tri.parecer?"\n\nParecer:\n"+F.tri.parecer:""),conferir:false,incompleto:true});
+  if(ok){toast("Processo cadastrado em Análise");F.proc.q=F.tri.cliente;ir("processos")}
+}
+async function parecerClaude(t){
+  const b=$("tParecer");b.disabled=true;b.textContent="Analisando…";
+  try{
+    const r=await sample(`Você é advogada consumerista atuando nos Juizados Especiais do Consumidor da Bahia. Com base na triagem abaixo, escreva um parecer objetivo de viabilidade em português jurídico, em até 180 palavras, sem markdown, com: (1) conclusão sobre cabimento da ação; (2) tese principal com fundamento legal; (3) riscos; (4) o que pedir ao cliente antes de ajuizar. Não cite números de acórdãos.\n\nTipo de caso: ${t.n}\nCliente: ${F.tri.cliente||"não informado"} | Parte contrária: ${F.tri.contra||"não informada"}\n\n${resumoTri(t)}`,{modelTier:"default"});
+    F.tri.parecer=(r&&r.text||"").trim();render();
+  }catch(e){toast(e&&e.code==="rate_limited"?"Muitas consultas seguidas. Aguarde um pouco.":e&&e.code==="not_granted"?"Permissão para consultar o Claude não concedida.":"Não foi possível gerar o parecer agora.");b.disabled=false;b.textContent="Parecer com Claude"}
+}
+
+/* ============================== INICIALIZAÇÃO ============================== */
+(function(){const h=(location.hash||"").slice(1);const saved=lsGet("esc.view");view=VIEWS.some(v=>v[0]===h)?h:VIEWS.some(v=>v[0]===saved)?saved:"inicio"})();
+render();
+window.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("dlg").open)$("dlg").close()});
+(async()=>{
+  const sem=msg=>{S.ok.tentou=true;S.ok.msg=msg;$("syncTxt").textContent="Sem conexão";render()};
+  if(!window.claude||typeof window.claude.use!=="function"){sem("Abra o sistema pelo claude.ai para ver e editar os dados do escritório.");return}
+  let d=null;try{d=await window.claude.use("db")}catch(_){}
+  if(!d){sem("Não foi possível acessar os dados nesta visualização. Abra pelo claude.ai, com sua conta conectada.");return}
+  db=d;
+  try{const u=await window.claude.use("user");if(u&&u.can&&u.can("data.write")===false)podeEscrever=false}catch(_){}
+  try{sample=await window.claude.use("sample")}catch(_){sample=null}
+  try{dl=await window.claude.use("downloads")}catch(_){dl=null}
+  let pend=COLS.length,rt=null;
+  const agenda=()=>{clearTimeout(rt);rt=setTimeout(render,60)};
+  COLS.forEach(col=>{let first=true;db.collection(col).onSnapshot(s=>{S[col]=s.docs.map(x=>Object.assign({id:x.id},x.data()));if(first){first=false;if(--pend===0){S.ok.conectado=true;$("syncDot").classList.add("on");$("syncTxt").textContent="Dados sincronizados"}}
+    const ae=document.activeElement;if(ae&&ae.matches&&ae.matches("input[type=search],[data-campo],#tcli,#tcon,textarea"))return; agenda()},
+    ()=>{$("syncDot").classList.remove("on");$("syncTxt").textContent="Conexão interrompida — recarregue"})});
+})();
+</script>
+
+</body></html>
